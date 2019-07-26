@@ -13,17 +13,17 @@ There are mainly 5 modules: user module, commodity module, shopping cart module,
     +Data provided: UserMapper under dao package
     +SQL statement: under the resources package under the mappers package UserMapper.xml
 ### Main interface Main interface
-*Login interface
-*User exit interface
-*Registered interface
-*Check interface
-*Get user information interface when logging in
-*What is the problem with the query forgot password?
-*Verify the password recovery problem
-*Password problem reset password interface
-*Reset password interface in login state
-*Update user information interface
-*Get user information interface
+* Login interface
+* User exit interface
+* Registered interface
+* Check interface
+* Get user information interface when logging in
+* What is the problem with the query forgot password?
+* Verify the password recovery problem
+* Password problem reset password interface
+* Reset password interface in login state
+* Update user information interface
+* Get user information interface
 ## Product Module
     +Presentation layer: ControllerController under ProductController, ProductManageController
     +Business layer: ProductServiceImpl, CategoryServiceImpl under the impl package under the service package
