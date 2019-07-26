@@ -8,10 +8,10 @@ There are mainly 5 modules: user module, commodity module, shopping cart module,
 
 ## User module User Module
 
-    Presentation layer: controller under the UserController
-    Business layer: UserServiceImpl under the impl package under the service package
-    Data provided: UserMapper under dao package
-    SQL statement: under the resources package under the mappers package UserMapper.xml
+    +Presentation layer: controller under the UserController
+    +Business layer: UserServiceImpl under the impl package under the service package
+    +Data provided: UserMapper under dao package
+    +SQL statement: under the resources package under the mappers package UserMapper.xml
 ### Main interface Main interface
 *
    Login interface
@@ -36,10 +36,10 @@ There are mainly 5 modules: user module, commodity module, shopping cart module,
 *
    Get user information interface
 ## Product Module
-    Presentation layer: ControllerController under ProductController, ProductManageController
-    Business layer: ProductServiceImpl, CategoryServiceImpl under the impl package under the service package
-    Data provided: dao package under ProductMapper, CategoryMapper
-    SQL statement: under the resources package under the mappers package under the dao package ProductMapper.xml, CategoryMapper.xml
+    +Presentation layer: ControllerController under ProductController, ProductManageController
+    +Business layer: ProductServiceImpl, CategoryServiceImpl under the impl package under the service package
+    +Data provided: dao package under ProductMapper, CategoryMapper
+    +SQL statement: under the resources package under the mappers package under the dao package ProductMapper.xml, CategoryMapper.xml
 ### Main interface at the front desk
 *
    Product details interface
@@ -75,10 +75,10 @@ There are mainly 5 modules: user module, commodity module, shopping cart module,
 *
    Upload product image interface
 ## Shopping Cart Module
-    Presentation layer: Controller under the CartController
-    Business layer: CartServiceImpl under the impl package under the service package
-    Data provided: CAT package under CartMapper
-    SQL statement: under the resources package under the mappers package CartMapper.xml
+    +Presentation layer: Controller under the CartController
+    +Business layer: CartServiceImpl under the impl package under the service package
+    +Data provided: CAT package under CartMapper
+    +SQL statement: under the resources package under the mappers package CartMapper.xml
 ### Main interface
 *
    Shopping cart's merchandise interface
@@ -93,10 +93,10 @@ There are mainly 5 modules: user module, commodity module, shopping cart module,
 *
     Query the number of shopping carts
 ## Address Module
-    Presentation layer: controller under the ShippingController
-    Business layer: ShippingServiceImpl under the impl package under the service package
-    Data provided: dao package under ShippingMapper
-    SQL statement: under the resources package under the mappers package ShippingMapper.xml
+    +Presentation layer: controller under the ShippingController
+    +Business layer: ShippingServiceImpl under the impl package under the service package
+    +Data provided: dao package under ShippingMapper
+    +SQL statement: under the resources package under the mappers package ShippingMapper.xml
 ### Main interface
 *
    Add address interface
