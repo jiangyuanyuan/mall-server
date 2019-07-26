@@ -29,7 +29,8 @@ There are mainly 5 modules: user module, commodity module, shopping cart module,
 * Data provided: dao package under ProductMapper, CategoryMapper
 * SQL statement: under the resources package under the mappers package under the dao package ProductMapper.xml, CategoryMapper.xml
 ### Main interface at the front desk
-* Product details interface
+
+* Product details interface
 * Product list interface
 ### Background management main interface
 * Save product interface
