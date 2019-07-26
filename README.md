@@ -8,10 +8,10 @@ There are mainly 5 modules: user module, commodity module, shopping cart module,
 
 ## User module User Module
 
-    +Presentation layer: controller under the UserController
-    +Business layer: UserServiceImpl under the impl package under the service package
-    +Data provided: UserMapper under dao package
-    +SQL statement: under the resources package under the mappers package UserMapper.xml
+    + Presentation layer: controller under the UserController
+    + Business layer: UserServiceImpl under the impl package under the service package
+    + Data provided: UserMapper under dao package
+    + SQL statement: under the resources package under the mappers package UserMapper.xml
 ### Main interface Main interface
 * Login interface
 * User exit interface
@@ -25,78 +25,53 @@ There are mainly 5 modules: user module, commodity module, shopping cart module,
 * Update user information interface
 * Get user information interface
 ## Product Module
-    +Presentation layer: ControllerController under ProductController, ProductManageController
-    +Business layer: ProductServiceImpl, CategoryServiceImpl under the impl package under the service package
-    +Data provided: dao package under ProductMapper, CategoryMapper
-    +SQL statement: under the resources package under the mappers package under the dao package ProductMapper.xml, CategoryMapper.xml
+    + Presentation layer: ControllerController under ProductController, ProductManageController
+    + Business layer: ProductServiceImpl, CategoryServiceImpl under the impl package under the service package
+    + Data provided: dao package under ProductMapper, CategoryMapper
+    + SQL statement: under the resources package under the mappers package under the dao package ProductMapper.xml, CategoryMapper.xml
 ### Main interface at the front desk
 *
    Product details interface
 *
     Product list interface
 ### Background management main interface
-*
-   Save product interface
-*
-    Modify the merchandise sales status interface
-*
-   Get the product details interface
-*
-    Get the list interface of the item
-*
-   Query product interface
-*
-    Upload product interface
-*
-   Upload product image interface
-*
-   Increase product classification interface
-*
-    Modify the name interface of the item
-*
-   Get the name interface of the item
-*
-    Get the list interface of the item
-*
-   Query product interface
-*
-    Upload product interface
-*
-   Upload product image interface
+* Save product interface
+* Modify the merchandise sales status interface
+* Get the product details interface
+* Get the list interface of the item
+* Query product interface
+* Upload product interface
+* Upload product image interface
+* Increase product classification interface
+* Modify the name interface of the item
+* Get the name interface of the item
+* Get the list interface of the item
+* Query product interface
+* Upload product interface
+* Upload product image interface
 ## Shopping Cart Module
     +Presentation layer: Controller under the CartController
     +Business layer: CartServiceImpl under the impl package under the service package
     +Data provided: CAT package under CartMapper
     +SQL statement: under the resources package under the mappers package CartMapper.xml
 ### Main interface
-*
-   Shopping cart's merchandise interface
-*
-    Add shopping cart item interface
-*
-   Update shopping cart interface
-*
-    Delete shopping cart item interface
-*
-   Product selection, reverse selection interface
-*
-    Query the number of shopping carts
+* Shopping cart's merchandise interface
+* Add shopping cart item interface
+* Update shopping cart interface
+* Delete shopping cart item interface
+* Product selection, reverse selection interface
+* Query the number of shopping carts
 ## Address Module
-    +Presentation layer: controller under the ShippingController
-    +Business layer: ShippingServiceImpl under the impl package under the service package
-    +Data provided: dao package under ShippingMapper
-    +SQL statement: under the resources package under the mappers package ShippingMapper.xml
+    + Presentation layer: controller under the ShippingController
+    + Business layer: ShippingServiceImpl under the impl package under the service package
+    + Data provided: dao package under ShippingMapper
+    + SQL statement: under the resources package under the mappers package ShippingMapper.xml
 ### Main interface
-*
-   Add address interface
-*
-    Delete address interface
-*
-   Update address interface
-*
-    Address detail interface
-*
-   Address list interface
+* Add address interface
+* Delete address interface
+* Update address interface
+* Address detail interface
+* Address list interface
 ## Payment module
   Not yet updated to github mainly face to face payment
 
