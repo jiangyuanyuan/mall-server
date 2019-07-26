@@ -1,10 +1,10 @@
 # mall-server
 
-E-commerce ssm framework: spring+springMVC+Mybatis
-电商后台ssm框架：spring+springMVC+Mybatis
+## E-commerce ssm framework: spring+springMVC+Mybatis
+## 电商后台ssm框架：spring+springMVC+Mybatis
 
-There are mainly 5 modules: user module, commodity module, shopping cart module, address module, payment module
-主要有5个模块：用户模块、商品模块、购物车模块、地址模块、支付模块
+## There are mainly 5 modules: user module, commodity module, shopping cart module, address module, payment module
+## 主要有5个模块：用户模块、商品模块、购物车模块、地址模块、支付模块
 
 ## User module User Module
 * Presentation layer: controller under the UserController
