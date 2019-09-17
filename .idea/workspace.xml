@@ -9,30 +9,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2ca584b-5110-4b40-9e5b-6774accf9a17" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_4_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_0_0_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/common/Swagger2Config.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/AlarmMsgController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/AlarmMsgMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/AlarmMsg.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/service/IAlarmMsgService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/AlarmMsgServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/vo/AlarmMsgDto.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/vo/SingleStatisticsDto.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/vo/SingleStatisticsVo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mappers/AlarmMsgMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/common/Const.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/common/Const.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/controller/portal/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/controller/portal/UserController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/dao/CartMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/dao/CartMapper.class" />
@@ -54,14 +30,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/service/IUserService.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/service/IUserService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/service/impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/service/impl/UserServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/util/MD5Util.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/util/MD5Util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/mall_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/mall_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall.iml" afterPath="$PROJECT_DIR$/mall.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mmall/util/DateTimeUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/util/DateTimeUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/datasource.properties" afterPath="$PROJECT_DIR$/src/main/resources/datasource.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/datasource.properties" afterPath="$PROJECT_DIR$/target/classes/datasource.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/generatorConfig.xml" afterPath="$PROJECT_DIR$/target/classes/generatorConfig.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/logback.xml" afterPath="$PROJECT_DIR$/target/classes/logback.xml" />
@@ -925,6 +894,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="GO_FMT" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -1519,7 +1489,7 @@
       <workItem from="1568732321729" duration="1762000" />
       <workItem from="1568734152946" duration="994000" />
       <workItem from="1568740734227" duration="833000" />
-      <workItem from="1568744476545" duration="71000" />
+      <workItem from="1568744476545" duration="141000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1512546794045</created>
@@ -1612,11 +1582,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520234353739</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="没啥东西">
+      <created>1568744611237</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1568744611237</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204489000" />
+    <option name="totallyTimeSpent" value="204559000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1747,7 +1724,8 @@
     <MESSAGE value="20171226  1114 购物车的全选 反选" />
     <MESSAGE value="20171226  1140  查询购物车数量" />
     <MESSAGE value="20171226  1540  收货地址模块  新建地址接口  修改地址接口 删除地址接口 地址详情接口  地址列表接口  完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="20171226  1540  收货地址模块  新建地址接口  修改地址接口 删除地址接口 地址详情接口  地址列表接口  完成" />
+    <MESSAGE value="没啥东西" />
+    <option name="LAST_COMMIT_MESSAGE" value="没啥东西" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
