@@ -39,5 +39,9 @@
         <property name="defaultEncoding" value="UTF-8"></property>
     </bean>
 
+    <!--<bean class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration" id="Swagger2Config"/>-->
+    <!--<mvc:resources location="classpath:/META-INF/resources/" mapping="swagger-ui.html"/>-->
+    <!--<mvc:resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"/>-->
+
 
 </beans>

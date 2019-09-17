@@ -6,6 +6,8 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -20,6 +22,10 @@ public class DateTimeUtil {
     //str->Date
     //Date->str
     public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
+    public static final String DATE_SHORT_FORMAT = "yyyyMMdd";
+    public static final String DATE_SHORT_FORMAT_MONTH = "yyyyMM";
+    public static final String DATE_SHORT_FORMAT_YEAR = "yyyy";
 
 
 
@@ -50,6 +56,18 @@ public class DateTimeUtil {
         DateTime dateTime = new DateTime(date);
         return dateTime.toString(STANDARD_FORMAT);
     }
+
+
+    public static String convert(Date date, String dateFormat) {
+        if (date == null) {
+            return null;
+        }
+        if (null == dateFormat) {
+            dateFormat = STANDARD_FORMAT;
+        }
+        return new SimpleDateFormat(dateFormat).format(date);
+    }
+
 
 
 }

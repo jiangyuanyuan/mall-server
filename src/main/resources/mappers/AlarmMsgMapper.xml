@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmall.dao.AlarmMsgMapper" >
+  <resultMap id="BaseResultMap" type="com.mmall.pojo.AlarmMsg" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="cellid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="sensorid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="alarm_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="picture_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="alarm_picture_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="alarm_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="alarm_reason" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="parse" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cellid, sensorid, alarm_time, picture_type, alarm_picture_name, alarm_type, alarm_reason, 
+    parse
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from table_alarm_savemsg
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from table_alarm_savemsg
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mmall.pojo.AlarmMsg" >
+    insert into table_alarm_savemsg (id, cellid, sensorid, 
+      alarm_time, picture_type, alarm_picture_name, 
+      alarm_type, alarm_reason, parse
+      )
+    values (#{id,jdbcType=INTEGER}, #{cellid,jdbcType=INTEGER}, #{sensorid,jdbcType=INTEGER}, 
+      #{alarmTime,jdbcType=TIMESTAMP}, #{pictureType,jdbcType=INTEGER}, #{alarmPictureName,jdbcType=VARCHAR}, 
+      #{alarmType,jdbcType=INTEGER}, #{alarmReason,jdbcType=INTEGER}, #{parse,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mmall.pojo.AlarmMsg" >
+    insert into table_alarm_savemsg
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cellid != null" >
+        cellid,
+      </if>
+      <if test="sensorid != null" >
+        sensorid,
+      </if>
+      <if test="alarmTime != null" >
+        alarm_time,
+      </if>
+      <if test="pictureType != null" >
+        picture_type,
+      </if>
+      <if test="alarmPictureName != null" >
+        alarm_picture_name,
+      </if>
+      <if test="alarmType != null" >
+        alarm_type,
+      </if>
+      <if test="alarmReason != null" >
+        alarm_reason,
+      </if>
+      <if test="parse != null" >
+        parse,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cellid != null" >
+        #{cellid,jdbcType=INTEGER},
+      </if>
+      <if test="sensorid != null" >
+        #{sensorid,jdbcType=INTEGER},
+      </if>
+      <if test="alarmTime != null" >
+        #{alarmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pictureType != null" >
+        #{pictureType,jdbcType=INTEGER},
+      </if>
+      <if test="alarmPictureName != null" >
+        #{alarmPictureName,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmType != null" >
+        #{alarmType,jdbcType=INTEGER},
+      </if>
+      <if test="alarmReason != null" >
+        #{alarmReason,jdbcType=INTEGER},
+      </if>
+      <if test="parse != null" >
+        #{parse,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.AlarmMsg" >
+    update table_alarm_savemsg
+    <set >
+      <if test="cellid != null" >
+        cellid = #{cellid,jdbcType=INTEGER},
+      </if>
+      <if test="sensorid != null" >
+        sensorid = #{sensorid,jdbcType=INTEGER},
+      </if>
+      <if test="alarmTime != null" >
+        alarm_time = #{alarmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pictureType != null" >
+        picture_type = #{pictureType,jdbcType=INTEGER},
+      </if>
+      <if test="alarmPictureName != null" >
+        alarm_picture_name = #{alarmPictureName,jdbcType=VARCHAR},
+      </if>
+      <if test="alarmType != null" >
+        alarm_type = #{alarmType,jdbcType=INTEGER},
+      </if>
+      <if test="alarmReason != null" >
+        alarm_reason = #{alarmReason,jdbcType=INTEGER},
+      </if>
+      <if test="parse != null" >
+        parse = #{parse,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mmall.pojo.AlarmMsg" >
+    update table_alarm_savemsg
+    set cellid = #{cellid,jdbcType=INTEGER},
+      sensorid = #{sensorid,jdbcType=INTEGER},
+      alarm_time = #{alarmTime,jdbcType=TIMESTAMP},
+      picture_type = #{pictureType,jdbcType=INTEGER},
+      alarm_picture_name = #{alarmPictureName,jdbcType=VARCHAR},
+      alarm_type = #{alarmType,jdbcType=INTEGER},
+      alarm_reason = #{alarmReason,jdbcType=INTEGER},
+      parse = #{parse,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+
+
+  <select id="selectByTime" resultMap="BaseResultMap" parameterType="map">
+    SELECT <include refid="Base_Column_List"/>
+    FROM table_alarm_savemsg where DATE_SUB(CURDATE(), INTERVAL  #{timeNumber,jdbcType=INTEGER} DAY)
+    <![CDATA[<=date(alarm_time)]]>
+    ORDER BY alarm_time DESC
+
+  </select>
+
+  <select id="getListByMonth" resultMap="BaseResultMap" parameterType="map">
+    SELECT <include refid="Base_Column_List"/>
+    FROM table_alarm_savemsg where DATE_SUB(CURDATE(), INTERVAL  #{timeNumber,jdbcType=INTEGER} MONTH)
+    <![CDATA[<=date(alarm_time)]]>
+    ORDER BY alarm_time DESC
+
+  </select>
+
+  <select id="getListByYear" resultMap="BaseResultMap" parameterType="map">
+    SELECT <include refid="Base_Column_List"/>
+    FROM table_alarm_savemsg where DATE_SUB(CURDATE(), INTERVAL  #{timeNumber,jdbcType=INTEGER} YEAR)
+    <![CDATA[<=date(alarm_time)]]>
+    ORDER BY alarm_time DESC
+
+  </select>
+
+
+  <select id="selectList" resultMap="BaseResultMap" parameterType="map">
+    select
+    <include refid="Base_Column_List"/>
+    from table_alarm_savemsg
+    <!--<choose>-->
+      <!--<when test="sortType == 1">-->
+        <!--ORDER BY alarm_time ASC-->
+      <!--</when>-->
+      <!--<otherwise>-->
+        <!--ORDER BY alarm_time DESC-->
+      <!--</otherwise>-->
+    <!--</choose>-->
+
+  </select>
+</mapper>
