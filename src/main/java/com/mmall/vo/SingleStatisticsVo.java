@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  */
 public class SingleStatisticsVo implements Comparable<SingleStatisticsVo>{
     private String day;
-    private int count;
+    private int sum;
 
     public String getDay() {
         return day;
@@ -17,12 +17,12 @@ public class SingleStatisticsVo implements Comparable<SingleStatisticsVo>{
         this.day = day;
     }
 
-    public int getCount() {
-        return count;
+    public int getSum() {
+        return sum;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setSum(int count) {
+        this.sum = count;
     }
 
     @Override

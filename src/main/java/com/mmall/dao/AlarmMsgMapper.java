@@ -22,8 +22,10 @@ public interface AlarmMsgMapper {
 
 
     List<AlarmMsg> selectList();
-    List<AlarmMsg> selectByTime(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);
-    List<AlarmMsg> getListByMonth(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);
-    List<AlarmMsg> getListByYear(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);
-//    List<SingleStatisticsVo>  getListByYear(@Param("timeNumber") Integer timeNumber, @Param("sortType") Integer sortType);
+//    List<AlarmMsg> selectByTime(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);
+//    List<AlarmMsg> getListByMonth(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);
+//    List<AlarmMsg> getListByYear(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);
+    List<SingleStatisticsVo> getListByTime(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);
+    List<SingleStatisticsVo> getListByMonth(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);
+    List<SingleStatisticsVo>  getListByYear(@Param("timeNumber") Integer timeNumber, @Param("sortType") Integer sortType);
 }

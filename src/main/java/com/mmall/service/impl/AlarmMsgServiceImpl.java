@@ -38,133 +38,139 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
     }
 
 
-    @Override
-    public ServerResponse getListByTime(int timeNumber, int sortType) {
-
-        List<AlarmMsg> alarmMsgList = alarmMsgMapper.selectByTime(timeNumber, sortType);
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        List singleStatisticsList = new ArrayList();
-        if (alarmMsgList.size() > 0) {
-            for (AlarmMsg alarmMsg : alarmMsgList) {
-                String timeKey = DateTimeUtil.convert(alarmMsg.getAlarmTime(), DateTimeUtil.DATE_SHORT_FORMAT);
-                Integer count = hashMap.get(timeKey);
-                if (count == null || count == 0) {
-                    hashMap.put(timeKey, 1);
-                } else {
-                    count = count + 1;
-                    hashMap.put(timeKey, count);
-                }
-            }
-            if (hashMap.size() > 0) {
-                for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
-                    SingleStatisticsVo singleStatisticsVo = new SingleStatisticsVo();
-                    singleStatisticsVo.setDay(entry.getKey());
-                    singleStatisticsVo.setCount(entry.getValue());
-                    singleStatisticsList.add(singleStatisticsVo);
-                }
-
-                Collections.sort(singleStatisticsList, (Comparator<SingleStatisticsVo>) (SingleStatisticsVo u1, SingleStatisticsVo u2) -> {
-                    BigDecimal diff = new BigDecimal(u1.getDay()).subtract(new BigDecimal(u2.getDay()));
-                    return diff.compareTo(new BigDecimal(0)); //相等为0
-                });
-
-            }
-
-
-        }
-
-        return ServerResponse.createBySuccessMessageAndData("统计数据", singleStatisticsList);
-    }
-
-
-    @Override
-    public ServerResponse getListByMonth(int timeNumber, int sortType) {
-
-        List<AlarmMsg> alarmMsgList = alarmMsgMapper.getListByMonth(timeNumber, sortType);
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        List singleStatisticsList = new ArrayList();
-        if (alarmMsgList.size() > 0) {
-            for (AlarmMsg alarmMsg : alarmMsgList) {
-                String timeKey = DateTimeUtil.convert(alarmMsg.getAlarmTime(), DateTimeUtil.DATE_SHORT_FORMAT_MONTH);
-                Integer count = hashMap.get(timeKey);
-                if (count == null || count == 0) {
-                    hashMap.put(timeKey, 1);
-                } else {
-                    count = count + 1;
-                    hashMap.put(timeKey, count);
-                }
-            }
-            if (hashMap.size() > 0) {
-                for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
-                    SingleStatisticsVo singleStatisticsVo = new SingleStatisticsVo();
-                    singleStatisticsVo.setDay(entry.getKey());
-                    singleStatisticsVo.setCount(entry.getValue());
-                    singleStatisticsList.add(singleStatisticsVo);
-                }
-
-                Collections.sort(singleStatisticsList, (Comparator<SingleStatisticsVo>) (SingleStatisticsVo u1, SingleStatisticsVo u2) -> {
-                    BigDecimal diff = new BigDecimal(u1.getDay()).subtract(new BigDecimal(u2.getDay()));
-                    return diff.compareTo(new BigDecimal(0)); //相等为0
-                });
-
-            }
+//    @Override
+//    public ServerResponse getListByTime(int timeNumber, int sortType) {
+//
+//        List<AlarmMsg> alarmMsgList = alarmMsgMapper.selectByTime(timeNumber, sortType);
+//        HashMap<String, Integer> hashMap = new HashMap<>();
+//        List singleStatisticsList = new ArrayList();
+//        if (alarmMsgList.size() > 0) {
+//            for (AlarmMsg alarmMsg : alarmMsgList) {
+//                String timeKey = DateTimeUtil.convert(alarmMsg.getAlarmTime(), DateTimeUtil.DATE_SHORT_FORMAT);
+//                Integer count = hashMap.get(timeKey);
+//                if (count == null || count == 0) {
+//                    hashMap.put(timeKey, 1);
+//                } else {
+//                    count = count + 1;
+//                    hashMap.put(timeKey, count);
+//                }
+//            }
+//            if (hashMap.size() > 0) {
+//                for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
+//                    SingleStatisticsVo singleStatisticsVo = new SingleStatisticsVo();
+//                    singleStatisticsVo.setDay(entry.getKey());
+//                    singleStatisticsVo.setCount(entry.getValue());
+//                    singleStatisticsList.add(singleStatisticsVo);
+//                }
+//
+//                Collections.sort(singleStatisticsList, (Comparator<SingleStatisticsVo>) (SingleStatisticsVo u1, SingleStatisticsVo u2) -> {
+//                    BigDecimal diff = new BigDecimal(u1.getDay()).subtract(new BigDecimal(u2.getDay()));
+//                    return diff.compareTo(new BigDecimal(0)); //相等为0
+//                });
+//
+//            }
+//
+//
+//        }
+//
+//        return ServerResponse.createBySuccessMessageAndData("统计数据", singleStatisticsList);
+//    }
 
 
-        }
+//    @Override
+//    public ServerResponse getListByMonth(int timeNumber, int sortType) {
+//
+//        List<AlarmMsg> alarmMsgList = alarmMsgMapper.getListByMonth(timeNumber, sortType);
+//        HashMap<String, Integer> hashMap = new HashMap<>();
+//        List singleStatisticsList = new ArrayList();
+//        if (alarmMsgList.size() > 0) {
+//            for (AlarmMsg alarmMsg : alarmMsgList) {
+//                String timeKey = DateTimeUtil.convert(alarmMsg.getAlarmTime(), DateTimeUtil.DATE_SHORT_FORMAT_MONTH);
+//                Integer count = hashMap.get(timeKey);
+//                if (count == null || count == 0) {
+//                    hashMap.put(timeKey, 1);
+//                } else {
+//                    count = count + 1;
+//                    hashMap.put(timeKey, count);
+//                }
+//            }
+//            if (hashMap.size() > 0) {
+//                for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
+//                    SingleStatisticsVo singleStatisticsVo = new SingleStatisticsVo();
+//                    singleStatisticsVo.setDay(entry.getKey());
+//                    singleStatisticsVo.setCount(entry.getValue());
+//                    singleStatisticsList.add(singleStatisticsVo);
+//                }
+//
+//                Collections.sort(singleStatisticsList, (Comparator<SingleStatisticsVo>) (SingleStatisticsVo u1, SingleStatisticsVo u2) -> {
+//                    BigDecimal diff = new BigDecimal(u1.getDay()).subtract(new BigDecimal(u2.getDay()));
+//                    return diff.compareTo(new BigDecimal(0)); //相等为0
+//                });
+//
+//            }
+//
+//
+//        }
+//
+//        return ServerResponse.createBySuccessMessageAndData("统计数据", singleStatisticsList);
+//    }
 
-        return ServerResponse.createBySuccessMessageAndData("统计数据", singleStatisticsList);
-    }
-
-
-
-    @Override
-    public ServerResponse getListByYear(int timeNumber, int sortType) {
-
-        List<AlarmMsg> alarmMsgList = alarmMsgMapper.getListByYear(timeNumber, sortType);
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        List singleStatisticsList = new ArrayList();
-        if (alarmMsgList.size() > 0) {
-            for (AlarmMsg alarmMsg : alarmMsgList) {
-                String timeKey = DateTimeUtil.convert(alarmMsg.getAlarmTime(), DateTimeUtil.DATE_SHORT_FORMAT_YEAR);
-                Integer count = hashMap.get(timeKey);
-                if (count == null || count == 0) {
-                    hashMap.put(timeKey, 1);
-                } else {
-                    count = count + 1;
-                    hashMap.put(timeKey, count);
-                }
-            }
-            if (hashMap.size() > 0) {
-                for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
-                    SingleStatisticsVo singleStatisticsVo = new SingleStatisticsVo();
-                    singleStatisticsVo.setDay(entry.getKey());
-                    singleStatisticsVo.setCount(entry.getValue());
-                    singleStatisticsList.add(singleStatisticsVo);
-                }
-
-                Collections.sort(singleStatisticsList, (Comparator<SingleStatisticsVo>) (SingleStatisticsVo u1, SingleStatisticsVo u2) -> {
-                    BigDecimal diff = new BigDecimal(u1.getDay()).subtract(new BigDecimal(u2.getDay()));
-                    return diff.compareTo(new BigDecimal(0)); //相等为0
-                });
-
-            }
-
-
-        }
-
-        return ServerResponse.createBySuccessMessageAndData("统计数据", singleStatisticsList);
-    }
 
 
 //    @Override
 //    public ServerResponse getListByYear(int timeNumber, int sortType) {
 //
-//        List<SingleStatisticsVo> alarmMsgList = alarmMsgMapper.getListByYear(timeNumber, sortType);
+//        List<AlarmMsg> alarmMsgList = alarmMsgMapper.getListByYear(timeNumber, sortType);
+//        HashMap<String, Integer> hashMap = new HashMap<>();
+//        List singleStatisticsList = new ArrayList();
+//        if (alarmMsgList.size() > 0) {
+//            for (AlarmMsg alarmMsg : alarmMsgList) {
+//                String timeKey = DateTimeUtil.convert(alarmMsg.getAlarmTime(), DateTimeUtil.DATE_SHORT_FORMAT_YEAR);
+//                Integer count = hashMap.get(timeKey);
+//                if (count == null || count == 0) {
+//                    hashMap.put(timeKey, 1);
+//                } else {
+//                    count = count + 1;
+//                    hashMap.put(timeKey, count);
+//                }
+//            }
+//            if (hashMap.size() > 0) {
+//                for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
+//                    SingleStatisticsVo singleStatisticsVo = new SingleStatisticsVo();
+//                    singleStatisticsVo.setDay(entry.getKey());
+//                    singleStatisticsVo.setCount(entry.getValue());
+//                    singleStatisticsList.add(singleStatisticsVo);
+//                }
+//
+//                Collections.sort(singleStatisticsList, (Comparator<SingleStatisticsVo>) (SingleStatisticsVo u1, SingleStatisticsVo u2) -> {
+//                    BigDecimal diff = new BigDecimal(u1.getDay()).subtract(new BigDecimal(u2.getDay()));
+//                    return diff.compareTo(new BigDecimal(0)); //相等为0
+//                });
+//
+//            }
 //
 //
+//        }
 //
-//        return ServerResponse.createBySuccessMessageAndData("统计数据", alarmMsgList);
+//        return ServerResponse.createBySuccessMessageAndData("统计数据", singleStatisticsList);
 //    }
+@Override
+public ServerResponse getListByTime(int timeNumber, int sortType) {
+    List<SingleStatisticsVo> alarmMsgList = alarmMsgMapper.getListByTime(timeNumber, sortType);
+    return ServerResponse.createBySuccessMessageAndData("统计数据", alarmMsgList);
+}
+
+    @Override
+    public ServerResponse getListByMonth(int timeNumber, int sortType) {
+        List<SingleStatisticsVo> alarmMsgList = alarmMsgMapper.getListByMonth(timeNumber, sortType);
+        return ServerResponse.createBySuccessMessageAndData("统计数据", alarmMsgList);
+    }
+
+    @Override
+    public ServerResponse getListByYear(int timeNumber, int sortType) {
+        List<SingleStatisticsVo> alarmMsgList = alarmMsgMapper.getListByYear(timeNumber, sortType);
+        return ServerResponse.createBySuccessMessageAndData("统计数据", alarmMsgList);
+    }
 
 
 }
