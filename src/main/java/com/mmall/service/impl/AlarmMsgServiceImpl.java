@@ -27,9 +27,9 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
     public ServerResponse getList(int sortType, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         if (sortType == 1) {
-            PageHelper.orderBy("alarm_time asc");
+            PageHelper.orderBy("id asc");
         } else {
-            PageHelper.orderBy("alarm_time desc");
+            PageHelper.orderBy("id desc");
         }
 
         List<AlarmMsg> alarmMsgList = alarmMsgMapper.selectList();
@@ -59,7 +59,7 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
                 for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
                     SingleStatisticsVo singleStatisticsVo = new SingleStatisticsVo();
                     singleStatisticsVo.setDay(entry.getKey());
-                    singleStatisticsVo.setSum(entry.getValue());
+                    singleStatisticsVo.setCount(entry.getValue());
                     singleStatisticsList.add(singleStatisticsVo);
                 }
 
@@ -98,7 +98,7 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
                 for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
                     SingleStatisticsVo singleStatisticsVo = new SingleStatisticsVo();
                     singleStatisticsVo.setDay(entry.getKey());
-                    singleStatisticsVo.setSum(entry.getValue());
+                    singleStatisticsVo.setCount(entry.getValue());
                     singleStatisticsList.add(singleStatisticsVo);
                 }
 
@@ -138,7 +138,7 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
                 for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
                     SingleStatisticsVo singleStatisticsVo = new SingleStatisticsVo();
                     singleStatisticsVo.setDay(entry.getKey());
-                    singleStatisticsVo.setSum(entry.getValue());
+                    singleStatisticsVo.setCount(entry.getValue());
                     singleStatisticsList.add(singleStatisticsVo);
                 }
 
@@ -154,6 +154,17 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
 
         return ServerResponse.createBySuccessMessageAndData("统计数据", singleStatisticsList);
     }
+
+
+//    @Override
+//    public ServerResponse getListByYear(int timeNumber, int sortType) {
+//
+//        List<SingleStatisticsVo> alarmMsgList = alarmMsgMapper.getListByYear(timeNumber, sortType);
+//
+//
+//
+//        return ServerResponse.createBySuccessMessageAndData("统计数据", alarmMsgList);
+//    }
 
 
 }
