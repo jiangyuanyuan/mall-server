@@ -116,8 +116,7 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
 //    }
 
 
-
-//    @Override
+    //    @Override
 //    public ServerResponse getListByYear(int timeNumber, int sortType) {
 //
 //        List<AlarmMsg> alarmMsgList = alarmMsgMapper.getListByYear(timeNumber, sortType);
@@ -154,11 +153,18 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
 //
 //        return ServerResponse.createBySuccessMessageAndData("统计数据", singleStatisticsList);
 //    }
-@Override
-public ServerResponse getListByTime(int timeNumber, int sortType) {
-    List<SingleStatisticsVo> alarmMsgList = alarmMsgMapper.getListByTime(timeNumber, sortType);
-    return ServerResponse.createBySuccessMessageAndData("统计数据", alarmMsgList);
-}
+
+    @Override
+    public ServerResponse getListByHour(int timeNumber, int sortType) {
+        List<SingleStatisticsVo> alarmMsgList = alarmMsgMapper.getListByHour(timeNumber, sortType);
+        return ServerResponse.createBySuccessMessageAndData("统计数据", alarmMsgList);
+    }
+
+    @Override
+    public ServerResponse getListByTime(int timeNumber, int sortType) {
+        List<SingleStatisticsVo> alarmMsgList = alarmMsgMapper.getListByTime(timeNumber, sortType);
+        return ServerResponse.createBySuccessMessageAndData("统计数据", alarmMsgList);
+    }
 
     @Override
     public ServerResponse getListByMonth(int timeNumber, int sortType) {

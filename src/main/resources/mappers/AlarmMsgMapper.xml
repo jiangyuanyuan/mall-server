@@ -142,89 +142,58 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-
-
-
-<!--  <select id="selectByTime" resultMap="BaseResultMap" parameterType="map">-->
-<!--    SELECT <include refid="Base_Column_List"/>-->
-<!--    FROM table_alarm_savemsg where DATE_SUB(CURDATE(), INTERVAL  #{timeNumber,jdbcType=INTEGER} DAY)-->
-<!--    <![CDATA[<=date(alarm_time)]]>-->
-<!--    ORDER BY alarm_time DESC-->
-
-<!--  </select>-->
-
-<!--  <select id="getListByMonth" resultMap="BaseResultMap" parameterType="map">-->
-<!--    SELECT <include refid="Base_Column_List"/>-->
-<!--    FROM table_alarm_savemsg where DATE_SUB(CURDATE(), INTERVAL  #{timeNumber,jdbcType=INTEGER} MONTH)-->
-<!--    <![CDATA[<=date(alarm_time)]]>-->
-<!--    ORDER BY alarm_time DESC-->
-
-<!--  </select>-->
-
-<!--  <select id="getListByYear" resultMap="BaseResultMap" parameterType="map">-->
-<!--    SELECT <include refid="Base_Column_List"/>-->
-<!--    FROM table_alarm_savemsg where DATE_SUB(CURDATE(), INTERVAL  #{timeNumber,jdbcType=INTEGER} YEAR)-->
-<!--    <![CDATA[<=date(alarm_time)]]>-->
-<!--    ORDER BY alarm_time DESC-->
-
-<!--&#45;&#45;     SELECT DATE_FORMAT(alarm_time, '%Y-%m') as month,count(id) from table_alarm_savemsg where DATE_FORMAT(alarm_time, '%Y') <![CDATA[<= DATE_FORMAT(CURDATE( ) , '%Y' )]]> and DATE_FORMAT(alarm_time, '%Y') >= DATE_FORMAT(CURDATE( ) , '%Y' )-10 GROUP BY month;-->
-
-
-<!--  </select>-->
-
-
-  <select id="getListByTime" resultType="com.mmall.vo.SingleStatisticsVo" parameterType="map">
-    <!--SELECT <include refid="Base_Column_List"/>-->
-    <!--FROM table_alarm_savemsg where DATE_SUB(CURDATE(), INTERVAL  #{timeNumber,jdbcType=INTEGER} YEAR)-->
-    <!--<![CDATA[<=date(alarm_time)]]>-->
-    <!--ORDER BY alarm_time DESC-->
-
-    SELECT DATE_FORMAT(alarm_time, '%Y%m%d') as day,count(id) as sum from table_alarm_savemsg where DATE_FORMAT(alarm_time, '%Y%m%d') <![CDATA[<= DATE_FORMAT(CURDATE( ) , '%Y%m%d' )]]> and DATE_FORMAT(alarm_time, '%Y%m%d') >= DATE_FORMAT(CURDATE( ) , '%Y%m%d' )-#{timeNumber,jdbcType=INTEGER} GROUP BY day;
-
-
+  <select id="getListByHour" resultType="com.mmall.vo.SingleStatisticsVo" parameterType="map">
+    SELECT
+    DATE_FORMAT( alarm_time, '%Y%m%d%H' ) AS day,
+    COUNT( 1 ) AS sum
+    FROM
+    table_alarm_savemsg
+    WHERE  alarm_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} HOUR )
+    GROUP BY
+    DATE_FORMAT( alarm_time, '%Y%m%d%H' )
   </select>
 
 
 
+  <select id="getListByTime" resultType="com.mmall.vo.SingleStatisticsVo" parameterType="map">
+    SELECT
+    DATE_FORMAT( alarm_time, '%Y%m%d' ) AS day,
+    COUNT( 1 ) AS sum
+    FROM
+    table_alarm_savemsg
+    WHERE  alarm_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} DAY )
+    GROUP BY
+    DATE_FORMAT( alarm_time, '%Y%m%d' )
+  </select>
+
+
   <select id="getListByMonth" resultType="com.mmall.vo.SingleStatisticsVo" parameterType="map">
-    <!--SELECT <include refid="Base_Column_List"/>-->
-    <!--FROM table_alarm_savemsg where DATE_SUB(CURDATE(), INTERVAL  #{timeNumber,jdbcType=INTEGER} YEAR)-->
-    <!--<![CDATA[<=date(alarm_time)]]>-->
-    <!--ORDER BY alarm_time DESC-->
-
-    SELECT DATE_FORMAT(alarm_time, '%Y%m') as day,count(id) as sum from table_alarm_savemsg where DATE_FORMAT(alarm_time, '%Y%m') <![CDATA[<= DATE_FORMAT(CURDATE( ) , '%Y%m' )]]> and DATE_FORMAT(alarm_time, '%Y') >= DATE_FORMAT(CURDATE( ) , '%Y' )-#{timeNumber,jdbcType=INTEGER} GROUP BY day;
-
-
+    SELECT
+    DATE_FORMAT( alarm_time, '%Y%m' ) AS day,
+    COUNT( 1 ) AS sum
+    FROM
+    table_alarm_savemsg
+    WHERE  alarm_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} month )
+    GROUP BY
+    DATE_FORMAT( alarm_time, '%Y%m' )
   </select>
 
 
   <select id="getListByYear" resultType="com.mmall.vo.SingleStatisticsVo" parameterType="map">
-    <!--SELECT <include refid="Base_Column_List"/>-->
-    <!--FROM table_alarm_savemsg where DATE_SUB(CURDATE(), INTERVAL  #{timeNumber,jdbcType=INTEGER} YEAR)-->
-    <!--<![CDATA[<=date(alarm_time)]]>-->
-    <!--ORDER BY alarm_time DESC-->
-
-    SELECT DATE_FORMAT(alarm_time, '%Y') as day,count(id) as sum from table_alarm_savemsg where DATE_FORMAT(alarm_time, '%Y') <![CDATA[<= DATE_FORMAT(CURDATE( ) , '%Y' )]]> and DATE_FORMAT(alarm_time, '%Y') >= DATE_FORMAT(CURDATE( ) , '%Y' )-#{timeNumber,jdbcType=INTEGER} GROUP BY day;
-
-
-  </select>
+    SELECT
+    DATE_FORMAT( alarm_time, '%Y' ) AS day,
+    COUNT( 1 ) AS sum
+    FROM
+    table_alarm_savemsg
+    WHERE  alarm_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} year )
+    GROUP BY
+    DATE_FORMAT( alarm_time, '%Y' )
+</select>
 
 
   <select id="selectList" resultMap="BaseResultMap" parameterType="map" flushCache="true">
     select
     <include refid="Base_Column_List"/>
     from table_alarm_savemsg
---     (SELECT * FROM table_alarm_savemsg GROUP BY DATE_FORMAT(alarm_time, '%Y-%m')) AS T
---     ORDER BY T.pictureType DESC ORDER BY T.alarm_time DESC
-
-    <!--<choose>-->
-      <!--<when test="sortType == 1">-->
-        <!--ORDER BY alarm_time ASC-->
-      <!--</when>-->
-      <!--<otherwise>-->
-        <!--ORDER BY alarm_time DESC-->
-      <!--</otherwise>-->
-    <!--</choose>-->
-
   </select>
 </mapper>

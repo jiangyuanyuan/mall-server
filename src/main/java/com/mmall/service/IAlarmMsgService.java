@@ -8,6 +8,7 @@ import com.mmall.pojo.User;
  */
 public interface IAlarmMsgService {
     ServerResponse getList(int sortType,int pageNum, int pageSize);
+    ServerResponse getListByHour(int timeType,int sortType);
     ServerResponse getListByTime(int timeType,int sortType);
     ServerResponse getListByMonth(int timeType,int sortType);
     ServerResponse getListByYear(int timeType,int sortType);

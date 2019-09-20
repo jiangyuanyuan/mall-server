@@ -18,17 +18,23 @@ public class AlarmMsgController {
     private IAlarmMsgService iAlarmMsgService;
 
 
-        @RequestMapping(value = "getList.do", method = RequestMethod.POST)
-        @ResponseBody
-        public ServerResponse getList(@RequestBody AlarmMsgDto alarmMsgDto) {
-            return iAlarmMsgService.getList(alarmMsgDto.getSortType(), alarmMsgDto.getPageNum(), alarmMsgDto.getPageSize());
-        }
+    @RequestMapping(value = "getList.do", method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse getList(@RequestBody AlarmMsgDto alarmMsgDto) {
+        return iAlarmMsgService.getList(alarmMsgDto.getSortType(), alarmMsgDto.getPageNum(), alarmMsgDto.getPageSize());
+    }
 
-        @RequestMapping(value = "getListByTime.do", method = RequestMethod.POST)
-        @ResponseBody
-        public ServerResponse getListByTime(@RequestBody SingleStatisticsDto singleStatisticsDto) {
-            return iAlarmMsgService.getListByTime(singleStatisticsDto.getTimeNumber(), singleStatisticsDto.getSortType());
-        }
+    @RequestMapping(value = "getListByHour.do", method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse getListByHour(@RequestBody SingleStatisticsDto singleStatisticsDto) {
+        return iAlarmMsgService.getListByHour(singleStatisticsDto.getTimeNumber(), singleStatisticsDto.getSortType());
+    }
+
+    @RequestMapping(value = "getListByTime.do", method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse getListByTime(@RequestBody SingleStatisticsDto singleStatisticsDto) {
+        return iAlarmMsgService.getListByTime(singleStatisticsDto.getTimeNumber(), singleStatisticsDto.getSortType());
+    }
 
 
     @RequestMapping(value = "getListByMonth.do", method = RequestMethod.POST)
