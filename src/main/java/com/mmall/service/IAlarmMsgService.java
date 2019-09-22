@@ -7,6 +7,8 @@ import com.mmall.pojo.User;
  * Created by jiangyuanyuan on 23/11/17.
  */
 public interface IAlarmMsgService {
+    ServerResponse getNewest();
+    ServerResponse getTodayList(int sortType,int pageNum, int pageSize);
     ServerResponse getList(int sortType,int pageNum, int pageSize);
     ServerResponse getListByHour(int timeType,int sortType);
     ServerResponse getListByTime(int timeType,int sortType);

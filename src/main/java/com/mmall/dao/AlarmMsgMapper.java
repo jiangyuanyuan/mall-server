@@ -21,6 +21,8 @@ public interface AlarmMsgMapper {
     int updateByPrimaryKey(AlarmMsg record);
 
 
+    List<AlarmMsg> getNewest();
+    List<AlarmMsg> getTodayList();
     List<AlarmMsg> selectList();
 //    List<AlarmMsg> selectByTime(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);
 //    List<AlarmMsg> getListByMonth(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);

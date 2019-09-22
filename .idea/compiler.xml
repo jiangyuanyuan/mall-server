@@ -13,9 +13,4 @@
       <module name="mall" target="1.8" />
     </bytecodeTargetLevel>
   </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="mall" options="-extdirs H:\dev\ideawork\mall-server/src/main/webapp/WEB-INF/lib" />
-    </option>
-  </component>
 </project>

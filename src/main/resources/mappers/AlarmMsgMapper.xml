@@ -196,4 +196,18 @@
     <include refid="Base_Column_List"/>
     from table_alarm_savemsg
   </select>
+
+
+  <select id="getTodayList" resultMap="BaseResultMap" parameterType="map" flushCache="true">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM table_alarm_savemsg
+    WHERE to_days(alarm_time) = to_days(now())
+  </select>
+
+
+  <select id="getNewest" resultMap="BaseResultMap" parameterType="map" flushCache="true">
+   SELECT <include refid="Base_Column_List"/> FROM table_alarm_savemsg ORDER BY id DESC LIMIT 1
+  </select>
+
 </mapper>

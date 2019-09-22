@@ -23,6 +23,29 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
     AlarmMsgMapper alarmMsgMapper;
 
 
+
+    @Override
+    public ServerResponse getNewest() {
+        List<AlarmMsg> NewestList = alarmMsgMapper.getNewest();
+        return ServerResponse.createBySuccessMessageAndData("最新ID", NewestList);
+    }
+
+
+    @Override
+    public ServerResponse getTodayList(int sortType, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+//        if (sortType == 1) {
+//            PageHelper.orderBy("picture_type asc");
+//        } else {
+//            PageHelper.orderBy("picture_type desc");
+//        }
+        PageHelper.orderBy("picture_type asc");
+        List<AlarmMsg> alarmMsgList = alarmMsgMapper.getTodayList();
+        PageInfo pageInfo = new PageInfo(alarmMsgList);
+        return ServerResponse.createBySuccessMessageAndData("分页查询", pageInfo);
+    }
+
+
     @Override
     public ServerResponse getList(int sortType, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);

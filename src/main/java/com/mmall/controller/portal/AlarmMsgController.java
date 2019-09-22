@@ -18,6 +18,21 @@ public class AlarmMsgController {
     private IAlarmMsgService iAlarmMsgService;
 
 
+
+    @RequestMapping(value = "getNewest.do", method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse getNewest() {
+        return iAlarmMsgService.getNewest();
+    }
+
+
+    @RequestMapping(value = "getTodayList.do", method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse getTodayList(@RequestBody AlarmMsgDto alarmMsgDto) {
+        return iAlarmMsgService.getTodayList(alarmMsgDto.getSortType(), alarmMsgDto.getPageNum(), alarmMsgDto.getPageSize());
+    }
+
+
     @RequestMapping(value = "getList.do", method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse getList(@RequestBody AlarmMsgDto alarmMsgDto) {
