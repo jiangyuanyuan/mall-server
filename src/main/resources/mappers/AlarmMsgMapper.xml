@@ -148,7 +148,7 @@
     COUNT( 1 ) AS sum
     FROM
     table_alarm_savemsg
-    WHERE  alarm_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} HOUR )
+    WHERE  to_days(alarm_time) = to_days(now())
     GROUP BY
     DATE_FORMAT( alarm_time, '%Y%m%d%H' )
   </select>
