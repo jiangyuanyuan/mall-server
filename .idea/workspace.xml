@@ -8,51 +8,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2ca584b-5110-4b40-9e5b-6774accf9a17" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/test.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/mmall/util/PorpertiesUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/util/PorpertiesUtil.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/common/TokenCache$1.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/common/TokenCache$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/common/TokenCache.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/common/TokenCache.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/pojo/Category.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/pojo/Category.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/pojo/OrderItem.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/pojo/OrderItem.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/pojo/PayInfo.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/pojo/PayInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/pojo/Product.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/pojo/Product.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/pojo/Shipping.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/pojo/Shipping.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/pojo/User.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/pojo/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/service/impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/service/impl/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mmall/util/MD5Util.class" afterPath="$PROJECT_DIR$/target/classes/com/mmall/util/MD5Util.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/vo/CaveatDto.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/vo/CaveatVo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall.war" afterPath="$PROJECT_DIR$/target/mall.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/common/TokenCache$1.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/common/TokenCache$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/common/TokenCache.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/common/TokenCache.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/pojo/Category.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/pojo/Category.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/pojo/OrderItem.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/pojo/OrderItem.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/pojo/PayInfo.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/pojo/PayInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/pojo/Product.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/pojo/Product.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/pojo/Shipping.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/pojo/Shipping.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/pojo/User.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/pojo/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/service/impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/service/impl/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/util/MD5Util.class" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/util/MD5Util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/mall_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/mall_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/mall_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/mall_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall.iml" afterPath="$PROJECT_DIR$/mall.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/CategoryManageController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/CategoryManageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/ProductManageController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/ProductManageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/UserManagerController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/UserManagerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/AlarmMsgController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/AlarmMsgController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/CartController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/CartController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/ProductController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/ProductController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/ShippingController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/ShippingController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mmall/dao/AlarmMsgMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/AlarmMsgMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mmall/service/IAlarmMsgService.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/service/IAlarmMsgService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/AlarmMsgServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/AlarmMsgServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/datasource.properties" afterPath="$PROJECT_DIR$/src/main/resources/datasource.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappers/AlarmMsgMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappers/AlarmMsgMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/mall/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/datasource.properties" afterPath="$PROJECT_DIR$/target/classes/datasource.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/datasource.properties" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/datasource.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -81,48 +48,8 @@
       <file leaf-file-name="AlarmMsgServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/service/impl/AlarmMsgServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="39" column="54" lean-forward="false" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductManageController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/ProductManageController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
-              <caret line="172" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="43" column="7" lean-forward="false" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserManagerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/UserManagerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="48" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoryManageController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/CategoryManageController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="89" column="49" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state relative-caret-position="405">
+              <caret line="91" column="44" lean-forward="false" selection-start-line="91" selection-start-column="44" selection-end-line="91" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -131,52 +58,131 @@
       <file leaf-file-name="AlarmMsgMapper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/dao/AlarmMsgMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+            <state relative-caret-position="420">
+              <caret line="34" column="20" lean-forward="false" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AlarmMsgController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AlarmMsgController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/AlarmMsgController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+            <state relative-caret-position="558">
+              <caret line="69" column="57" lean-forward="false" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
               <folding>
-                <element signature="e#678#679#0" expanded="true" />
-                <element signature="e#729#730#0" expanded="true" />
-                <marker date="1569140043074" expanded="true" signature="1958:1963" ph="{...}" />
+                <element signature="e#709#710#0" expanded="true" />
+                <element signature="e#760#761#0" expanded="true" />
+                <marker date="1570458062368" expanded="true" signature="1989:1994" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CartController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/CartController.java">
+      <file leaf-file-name="IAlarmMsgService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/service/IAlarmMsgService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="27" column="29" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/ProductController.java">
+      <file leaf-file-name="AlarmMsgMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/AlarmMsgMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="33" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="383">
+              <caret line="235" column="55" lean-forward="false" selection-start-line="235" selection-start-column="55" selection-end-line="235" selection-end-column="55" />
+              <folding>
+                <marker date="1570458062345" expanded="true" signature="1297:1412" ph="select from table_alarm_savemsg" />
+                <marker date="1570458062345" expanded="true" signature="1499:1568" ph="delete from " />
+                <marker date="1570458062345" expanded="true" signature="1649:2113" ph="insert into table_alarm_savemsg... " />
+                <marker date="1570458062345" expanded="true" signature="3871:4774" ph="update table... " />
+                <marker date="1570458062345" expanded="true" signature="4867:5338" ph="update table... " />
+                <marker date="1570458062345" expanded="true" signature="5451:5665" ph="SELECT DATE_... " />
+                <marker date="1570458062345" expanded="true" signature="5780:6029" ph="SELECT DATE_... " />
+                <marker date="1570458062345" expanded="true" signature="6144:6391" ph="SELECT DATE_... " />
+                <marker date="1570458062345" expanded="true" signature="6505:6747" ph="SELECT DATE_... " />
+                <marker date="1570458062345" expanded="true" signature="6855:6930" ph="select from table_alarm_savemsg" />
+                <marker date="1570458062345" expanded="true" signature="6930:6941" ph="..." />
+                <marker date="1570458062345" expanded="true" signature="7042:7164" ph="SELECT FROM table_alarm_savemsg" />
+                <marker date="1570458062345" expanded="true" signature="7272:7364" ph="SELECT * FRO... table_alarm_savemsg" />
+                <marker date="1570458062345" expanded="true" signature="7469:7679" ph="SELECT pictu... " />
+                <marker date="1570458062345" expanded="true" signature="7785:7997" ph="SELECT pictu... " />
+                <marker date="1570458062345" expanded="true" signature="8102:8313" ph="SELECT pictu... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SingleStatisticsDto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/SingleStatisticsDto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShippingController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/ShippingController.java">
+      <file leaf-file-name="CaveatDto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/CaveatDto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="36" column="29" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding>
+                <element signature="e#134#135#0" expanded="true" />
+                <element signature="e#167#168#0" expanded="true" />
+                <element signature="e#220#221#0" expanded="true" />
+                <element signature="e#264#265#0" expanded="true" />
+                <element signature="e#296#297#0" expanded="true" />
+                <element signature="e#323#324#0" expanded="true" />
+                <element signature="e#364#365#0" expanded="true" />
+                <element signature="e#396#397#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datasource.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/datasource.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CaveatVo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/CaveatVo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="30" />
+              <folding>
+                <element signature="e#128#129#0" expanded="true" />
+                <element signature="e#154#155#0" expanded="true" />
+                <element signature="e#193#194#0" expanded="true" />
+                <element signature="e#223#224#0" expanded="true" />
+                <element signature="e#261#262#0" expanded="true" />
+                <element signature="e#294#295#0" expanded="true" />
+                <element signature="e#347#348#0" expanded="true" />
+                <element signature="e#391#392#0" expanded="true" />
+                <element signature="e#429#430#0" expanded="true" />
+                <element signature="e#462#463#0" expanded="true" />
+                <element signature="e#515#516#0" expanded="true" />
+                <element signature="e#559#560#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductDetailVo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/ProductDetailVo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -238,9 +244,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mmall/dao/CategoryMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/CategoryMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/pojo/Category.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/util/DataTimeUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/vo/ProductDetaiIVo.java" />
@@ -277,11 +280,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/vo/SingleStatisticsDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/util/DateTimeUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/vo/SingleStatisticsVo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/AlarmMsgController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mmall/service/IAlarmMsgService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/AlarmMsgMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mmall/dao/AlarmMsgMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/AlarmMsgServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/CategoryManageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/ProductManageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/UserManagerController.java" />
@@ -289,6 +287,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/ProductController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/ShippingController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mmall/vo/CaveatDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/AlarmMsgController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mmall/service/IAlarmMsgService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mmall/dao/AlarmMsgMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/AlarmMsgServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mmall/vo/CaveatVo.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappers/AlarmMsgMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/datasource.properties" />
       </list>
     </option>
   </component>
@@ -425,8 +431,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -436,6 +440,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mall-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mall-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mall-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -502,6 +520,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mappers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mall-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mall-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mmall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -621,6 +669,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="pojo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mall-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mall-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mmall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -696,6 +774,8 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1322,6 +1402,8 @@
       <workItem from="1569137333151" duration="1695000" />
       <workItem from="1569139176984" duration="1847000" />
       <workItem from="1569141058574" duration="1327000" />
+      <workItem from="1570454957901" duration="1624000" />
+      <workItem from="1570456852690" duration="1512000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1512546794045</created>
@@ -1439,7 +1521,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231816000" />
+    <option name="totallyTimeSpent" value="236145000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1472,11 +1554,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.024752475" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19678217" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30940595" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19678217" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1981402" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31402004" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1575,14 +1657,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mmall/dao/AlarmMsgMapper.java</url>
-          <line>33</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
+      <option name="time" value="1" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1591,26 +1666,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/AlarmMsgController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="43" column="5" lean-forward="false" selection-start-line="39" selection-start-column="3" selection-end-line="43" selection-end-column="5" />
-          <folding>
-            <element signature="e#678#679#0" expanded="true" />
-            <element signature="e#729#730#0" expanded="true" />
-            <marker date="1569140043074" expanded="true" signature="1958:1963" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/dao/AlarmMsgMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="27" column="3" lean-forward="false" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/service/impl/AlarmMsgServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1624,19 +1679,22 @@
         <state relative-caret-position="489">
           <caret line="192" column="53" lean-forward="false" selection-start-line="192" selection-start-column="43" selection-end-line="192" selection-end-column="53" />
           <folding>
-            <marker date="1569140302364" expanded="true" signature="1297:1412" ph="select from table_alarm_savemsg" />
-            <marker date="1569140302364" expanded="true" signature="1499:1568" ph="delete from " />
-            <marker date="1569140302364" expanded="true" signature="1649:2113" ph="insert into table_alarm_savemsg... " />
-            <marker date="1569140302364" expanded="true" signature="3871:4774" ph="update table... " />
-            <marker date="1569140302364" expanded="true" signature="4867:5338" ph="update table... " />
-            <marker date="1569140302364" expanded="true" signature="5451:5705" ph="SELECT DATE_... " />
-            <marker date="1569140302364" expanded="true" signature="5820:6069" ph="SELECT DATE_... " />
-            <marker date="1569140302364" expanded="true" signature="6184:6431" ph="SELECT DATE_... " />
-            <marker date="1569140302364" expanded="true" signature="6545:6787" ph="SELECT DATE_... " />
-            <marker date="1569140302364" expanded="true" signature="6895:6970" ph="select from table_alarm_savemsg" />
-            <marker date="1569140302364" expanded="true" signature="6970:6981" ph="..." />
-            <marker date="1569140302364" expanded="true" signature="7082:7204" ph="SELECT FROM table_alarm_savemsg" />
-            <marker date="1569140302364" expanded="true" signature="7312:7404" ph="SELECT * FRO... table_alarm_savemsg" />
+            <marker date="1570458062345" expanded="true" signature="1297:1412" ph="select from table_alarm_savemsg" />
+            <marker date="1570458062345" expanded="true" signature="1499:1568" ph="delete from " />
+            <marker date="1570458062345" expanded="true" signature="1649:2113" ph="insert into table_alarm_savemsg... " />
+            <marker date="1570458062345" expanded="true" signature="3871:4774" ph="update table... " />
+            <marker date="1570458062345" expanded="true" signature="4867:5338" ph="update table... " />
+            <marker date="1570458062345" expanded="true" signature="5451:5665" ph="SELECT DATE_... " />
+            <marker date="1570458062345" expanded="true" signature="5780:6029" ph="SELECT DATE_... " />
+            <marker date="1570458062345" expanded="true" signature="6144:6391" ph="SELECT DATE_... " />
+            <marker date="1570458062345" expanded="true" signature="6505:6747" ph="SELECT DATE_... " />
+            <marker date="1570458062345" expanded="true" signature="6855:6930" ph="select from table_alarm_savemsg" />
+            <marker date="1570458062345" expanded="true" signature="6930:6941" ph="..." />
+            <marker date="1570458062345" expanded="true" signature="7042:7164" ph="SELECT FROM table_alarm_savemsg" />
+            <marker date="1570458062345" expanded="true" signature="7272:7364" ph="SELECT * FRO... table_alarm_savemsg" />
+            <marker date="1570458062345" expanded="true" signature="7469:7679" ph="SELECT pictu... " />
+            <marker date="1570458062345" expanded="true" signature="7785:7997" ph="SELECT pictu... " />
+            <marker date="1570458062345" expanded="true" signature="8102:8313" ph="SELECT pictu... " />
           </folding>
         </state>
       </provider>
@@ -1739,28 +1797,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/CartVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="46" column="1" lean-forward="false" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/ProductDetailVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/pojo/PayInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/pojo/Cart.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
@@ -1826,20 +1863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/AlarmMsgDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/SingleStatisticsDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/pojo/AlarmMsg.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1851,15 +1874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/SingleStatisticsVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1870,65 +1884,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/datasource.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/service/IAlarmMsgService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/AlarmMsgMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3135">
-          <caret line="209" column="45" lean-forward="false" selection-start-line="209" selection-start-column="45" selection-end-line="209" selection-end-column="45" />
-          <folding>
-            <marker date="1569140302364" expanded="true" signature="1297:1412" ph="select from table_alarm_savemsg" />
-            <marker date="1569140302364" expanded="true" signature="1499:1568" ph="delete from " />
-            <marker date="1569140302364" expanded="true" signature="1649:2113" ph="insert into table_alarm_savemsg... " />
-            <marker date="1569140302364" expanded="true" signature="3871:4774" ph="update table... " />
-            <marker date="1569140302364" expanded="true" signature="4867:5338" ph="update table... " />
-            <marker date="1569140302364" expanded="true" signature="5451:5705" ph="SELECT DATE_... " />
-            <marker date="1569140302364" expanded="true" signature="5820:6069" ph="SELECT DATE_... " />
-            <marker date="1569140302364" expanded="true" signature="6184:6431" ph="SELECT DATE_... " />
-            <marker date="1569140302364" expanded="true" signature="6545:6787" ph="SELECT DATE_... " />
-            <marker date="1569140302364" expanded="true" signature="6895:6970" ph="select from table_alarm_savemsg" />
-            <marker date="1569140302364" expanded="true" signature="6970:6981" ph="..." />
-            <marker date="1569140302364" expanded="true" signature="7082:7204" ph="SELECT FROM table_alarm_savemsg" />
-            <marker date="1569140302364" expanded="true" signature="7312:7404" ph="SELECT * FRO... table_alarm_savemsg" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/dao/AlarmMsgMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/service/impl/AlarmMsgServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="39" column="54" lean-forward="false" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/backend/CategoryManageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
+        <state relative-caret-position="1335">
           <caret line="89" column="49" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1944,15 +1903,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="48" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/CartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="405">
           <caret line="27" column="29" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1966,29 +1923,173 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/ShippingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="540">
           <caret line="36" column="29" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="645">
           <caret line="43" column="7" lean-forward="false" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/pojo/Cart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/SingleStatisticsVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#468#469#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/CartVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="46" column="1" lean-forward="false" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/ProductDetailVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/AlarmMsgDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/SingleStatisticsDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/service/IAlarmMsgService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/service/impl/AlarmMsgServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="91" column="44" lean-forward="false" selection-start-line="91" selection-start-column="44" selection-end-line="91" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/dao/AlarmMsgMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="34" column="20" lean-forward="false" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/CaveatVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="30" />
+          <folding>
+            <element signature="e#128#129#0" expanded="true" />
+            <element signature="e#154#155#0" expanded="true" />
+            <element signature="e#193#194#0" expanded="true" />
+            <element signature="e#223#224#0" expanded="true" />
+            <element signature="e#261#262#0" expanded="true" />
+            <element signature="e#294#295#0" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+            <element signature="e#462#463#0" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#559#560#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/AlarmMsgMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="235" column="55" lean-forward="false" selection-start-line="235" selection-start-column="55" selection-end-line="235" selection-end-column="55" />
+          <folding>
+            <marker date="1570458062345" expanded="true" signature="1297:1412" ph="select from table_alarm_savemsg" />
+            <marker date="1570458062345" expanded="true" signature="1499:1568" ph="delete from " />
+            <marker date="1570458062345" expanded="true" signature="1649:2113" ph="insert into table_alarm_savemsg... " />
+            <marker date="1570458062345" expanded="true" signature="3871:4774" ph="update table... " />
+            <marker date="1570458062345" expanded="true" signature="4867:5338" ph="update table... " />
+            <marker date="1570458062345" expanded="true" signature="5451:5665" ph="SELECT DATE_... " />
+            <marker date="1570458062345" expanded="true" signature="5780:6029" ph="SELECT DATE_... " />
+            <marker date="1570458062345" expanded="true" signature="6144:6391" ph="SELECT DATE_... " />
+            <marker date="1570458062345" expanded="true" signature="6505:6747" ph="SELECT DATE_... " />
+            <marker date="1570458062345" expanded="true" signature="6855:6930" ph="select from table_alarm_savemsg" />
+            <marker date="1570458062345" expanded="true" signature="6930:6941" ph="..." />
+            <marker date="1570458062345" expanded="true" signature="7042:7164" ph="SELECT FROM table_alarm_savemsg" />
+            <marker date="1570458062345" expanded="true" signature="7272:7364" ph="SELECT * FRO... table_alarm_savemsg" />
+            <marker date="1570458062345" expanded="true" signature="7469:7679" ph="SELECT pictu... " />
+            <marker date="1570458062345" expanded="true" signature="7785:7997" ph="SELECT pictu... " />
+            <marker date="1570458062345" expanded="true" signature="8102:8313" ph="SELECT pictu... " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/AlarmMsgController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        <state relative-caret-position="558">
+          <caret line="69" column="57" lean-forward="false" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
           <folding>
-            <element signature="e#678#679#0" expanded="true" />
-            <element signature="e#729#730#0" expanded="true" />
-            <marker date="1569140043074" expanded="true" signature="1958:1963" ph="{...}" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="e#760#761#0" expanded="true" />
+            <marker date="1570458062368" expanded="true" signature="1989:1994" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/vo/CaveatDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="e#134#135#0" expanded="true" />
+            <element signature="e#167#168#0" expanded="true" />
+            <element signature="e#220#221#0" expanded="true" />
+            <element signature="e#264#265#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+            <element signature="e#323#324#0" expanded="true" />
+            <element signature="e#364#365#0" expanded="true" />
+            <element signature="e#396#397#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/datasource.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

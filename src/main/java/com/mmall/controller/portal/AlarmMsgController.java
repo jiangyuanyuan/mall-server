@@ -3,6 +3,7 @@ package com.mmall.controller.portal;
 import com.mmall.common.ServerResponse;
 import com.mmall.service.IAlarmMsgService;
 import com.mmall.vo.AlarmMsgDto;
+import com.mmall.vo.CaveatDto;
 import com.mmall.vo.SingleStatisticsDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -63,6 +64,13 @@ public class AlarmMsgController {
     public ServerResponse getListByYear(@RequestBody SingleStatisticsDto singleStatisticsDto) {
         return iAlarmMsgService.getListByYear(singleStatisticsDto.getTimeNumber(), singleStatisticsDto.getSortType());
     }
+
+    @RequestMapping(value = "getCaveat.do", method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse getCaveat(@RequestBody CaveatDto caveatDto) {
+        return iAlarmMsgService.getCaveat(caveatDto.getTimeNumber(), caveatDto.getType());
+    }
+
 
 
 }
