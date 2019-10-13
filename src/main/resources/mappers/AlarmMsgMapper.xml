@@ -213,35 +213,35 @@
 
   <select id="getCaveatByDay" resultType="com.mmall.vo.CaveatVo" parameterType="map">
     SELECT
-    picture_type AS caveatType,
+    alarm_type AS caveatType,
     COUNT( 1 ) AS sum
     FROM
     table_alarm_savemsg
     WHERE  alarm_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} DAY )
     GROUP BY
-    picture_type
+    alarm_type
   </select>
 
   <select id="getCaveatByMonth" resultType="com.mmall.vo.CaveatVo" parameterType="map">
     SELECT
-    picture_type AS caveatType,
+    alarm_type AS caveatType,
     COUNT( 1 ) AS sum
     FROM
     table_alarm_savemsg
     WHERE  alarm_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} month )
     GROUP BY
-    picture_type
+    alarm_type
   </select>
 
   <select id="getCaveatByYear" resultType="com.mmall.vo.CaveatVo" parameterType="map">
     SELECT
-    picture_type AS caveatType,
+    alarm_type AS caveatType,
     COUNT( 1 ) AS sum
     FROM
     table_alarm_savemsg
     WHERE  alarm_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} year )
     GROUP BY
-    picture_type
+    alarm_type
   </select>
 
 </mapper>

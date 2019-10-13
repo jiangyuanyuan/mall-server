@@ -22,15 +22,8 @@ public class CaveatVo {
         this.caveatType = caveatType;
     }
 
-    public Integer getProportion() {
-        return proportion;
-    }
-
-    public void setProportion(Integer proportion) {
-        this.proportion = proportion;
-    }
 
     private Integer sum;
     private Integer caveatType;
-    private Integer proportion;
+
 }
