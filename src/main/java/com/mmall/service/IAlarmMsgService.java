@@ -14,4 +14,6 @@ public interface IAlarmMsgService {
     ServerResponse getListByTime(int timeType,int sortType);
     ServerResponse getListByMonth(int timeType,int sortType);
     ServerResponse getListByYear(int timeType,int sortType);
+
+    ServerResponse getCaveat(Integer timeNumber, Integer type);
 }

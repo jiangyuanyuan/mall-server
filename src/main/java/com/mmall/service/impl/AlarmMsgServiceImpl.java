@@ -7,6 +7,7 @@ import com.mmall.dao.AlarmMsgMapper;
 import com.mmall.pojo.AlarmMsg;
 import com.mmall.service.IAlarmMsgService;
 import com.mmall.util.DateTimeUtil;
+import com.mmall.vo.CaveatVo;
 import com.mmall.vo.SingleStatisticsVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,6 @@ import java.util.*;
 public class AlarmMsgServiceImpl implements IAlarmMsgService {
     @Autowired
     AlarmMsgMapper alarmMsgMapper;
-
 
 
     @Override
@@ -61,122 +61,6 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
     }
 
 
-//    @Override
-//    public ServerResponse getListByTime(int timeNumber, int sortType) {
-//
-//        List<AlarmMsg> alarmMsgList = alarmMsgMapper.selectByTime(timeNumber, sortType);
-//        HashMap<String, Integer> hashMap = new HashMap<>();
-//        List singleStatisticsList = new ArrayList();
-//        if (alarmMsgList.size() > 0) {
-//            for (AlarmMsg alarmMsg : alarmMsgList) {
-//                String timeKey = DateTimeUtil.convert(alarmMsg.getAlarmTime(), DateTimeUtil.DATE_SHORT_FORMAT);
-//                Integer count = hashMap.get(timeKey);
-//                if (count == null || count == 0) {
-//                    hashMap.put(timeKey, 1);
-//                } else {
-//                    count = count + 1;
-//                    hashMap.put(timeKey, count);
-//                }
-//            }
-//            if (hashMap.size() > 0) {
-//                for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
-//                    SingleStatisticsVo singleStatisticsVo = new SingleStatisticsVo();
-//                    singleStatisticsVo.setDay(entry.getKey());
-//                    singleStatisticsVo.setCount(entry.getValue());
-//                    singleStatisticsList.add(singleStatisticsVo);
-//                }
-//
-//                Collections.sort(singleStatisticsList, (Comparator<SingleStatisticsVo>) (SingleStatisticsVo u1, SingleStatisticsVo u2) -> {
-//                    BigDecimal diff = new BigDecimal(u1.getDay()).subtract(new BigDecimal(u2.getDay()));
-//                    return diff.compareTo(new BigDecimal(0)); //相等为0
-//                });
-//
-//            }
-//
-//
-//        }
-//
-//        return ServerResponse.createBySuccessMessageAndData("统计数据", singleStatisticsList);
-//    }
-
-
-//    @Override
-//    public ServerResponse getListByMonth(int timeNumber, int sortType) {
-//
-//        List<AlarmMsg> alarmMsgList = alarmMsgMapper.getListByMonth(timeNumber, sortType);
-//        HashMap<String, Integer> hashMap = new HashMap<>();
-//        List singleStatisticsList = new ArrayList();
-//        if (alarmMsgList.size() > 0) {
-//            for (AlarmMsg alarmMsg : alarmMsgList) {
-//                String timeKey = DateTimeUtil.convert(alarmMsg.getAlarmTime(), DateTimeUtil.DATE_SHORT_FORMAT_MONTH);
-//                Integer count = hashMap.get(timeKey);
-//                if (count == null || count == 0) {
-//                    hashMap.put(timeKey, 1);
-//                } else {
-//                    count = count + 1;
-//                    hashMap.put(timeKey, count);
-//                }
-//            }
-//            if (hashMap.size() > 0) {
-//                for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
-//                    SingleStatisticsVo singleStatisticsVo = new SingleStatisticsVo();
-//                    singleStatisticsVo.setDay(entry.getKey());
-//                    singleStatisticsVo.setCount(entry.getValue());
-//                    singleStatisticsList.add(singleStatisticsVo);
-//                }
-//
-//                Collections.sort(singleStatisticsList, (Comparator<SingleStatisticsVo>) (SingleStatisticsVo u1, SingleStatisticsVo u2) -> {
-//                    BigDecimal diff = new BigDecimal(u1.getDay()).subtract(new BigDecimal(u2.getDay()));
-//                    return diff.compareTo(new BigDecimal(0)); //相等为0
-//                });
-//
-//            }
-//
-//
-//        }
-//
-//        return ServerResponse.createBySuccessMessageAndData("统计数据", singleStatisticsList);
-//    }
-
-
-    //    @Override
-//    public ServerResponse getListByYear(int timeNumber, int sortType) {
-//
-//        List<AlarmMsg> alarmMsgList = alarmMsgMapper.getListByYear(timeNumber, sortType);
-//        HashMap<String, Integer> hashMap = new HashMap<>();
-//        List singleStatisticsList = new ArrayList();
-//        if (alarmMsgList.size() > 0) {
-//            for (AlarmMsg alarmMsg : alarmMsgList) {
-//                String timeKey = DateTimeUtil.convert(alarmMsg.getAlarmTime(), DateTimeUtil.DATE_SHORT_FORMAT_YEAR);
-//                Integer count = hashMap.get(timeKey);
-//                if (count == null || count == 0) {
-//                    hashMap.put(timeKey, 1);
-//                } else {
-//                    count = count + 1;
-//                    hashMap.put(timeKey, count);
-//                }
-//            }
-//            if (hashMap.size() > 0) {
-//                for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
-//                    SingleStatisticsVo singleStatisticsVo = new SingleStatisticsVo();
-//                    singleStatisticsVo.setDay(entry.getKey());
-//                    singleStatisticsVo.setCount(entry.getValue());
-//                    singleStatisticsList.add(singleStatisticsVo);
-//                }
-//
-//                Collections.sort(singleStatisticsList, (Comparator<SingleStatisticsVo>) (SingleStatisticsVo u1, SingleStatisticsVo u2) -> {
-//                    BigDecimal diff = new BigDecimal(u1.getDay()).subtract(new BigDecimal(u2.getDay()));
-//                    return diff.compareTo(new BigDecimal(0)); //相等为0
-//                });
-//
-//            }
-//
-//
-//        }
-//
-//        return ServerResponse.createBySuccessMessageAndData("统计数据", singleStatisticsList);
-//    }
-
     @Override
     public ServerResponse getListByHour(int timeNumber, int sortType) {
         List<SingleStatisticsVo> alarmMsgList = alarmMsgMapper.getListByHour(timeNumber, sortType);
@@ -199,6 +83,64 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
     public ServerResponse getListByYear(int timeNumber, int sortType) {
         List<SingleStatisticsVo> alarmMsgList = alarmMsgMapper.getListByYear(timeNumber, sortType);
         return ServerResponse.createBySuccessMessageAndData("统计数据", alarmMsgList);
+    }
+
+    @Override
+    public ServerResponse getCaveat(Integer timeNumber, Integer type) {
+        List<CaveatVo> caveatList;
+        List<CaveatVo> caveatTempList = new ArrayList<>();
+        if (type == 1) {
+            caveatList = alarmMsgMapper.getCaveatByMonth(timeNumber);
+        } else if (type == 2) {
+            caveatList = alarmMsgMapper.getCaveatByYear(timeNumber);
+        } else {
+            caveatList = alarmMsgMapper.getCaveatByDay(timeNumber);
+        }
+        if (caveatList != null && caveatList.size() > 0) {
+
+//            "1" -> "未在指定时间休息"
+//            "2" -> "未在指定区域监督"
+//            "4" -> "厕所区域异常"
+//            "8" -> "窗户区域异常"
+//            "16" -> "高度异常"
+//            "32" -> "非休息时间休息"
+//            "64" -> "进入三角区域"
+//            "128" -> "内务不整"
+//            "512" -> "单人留仓"
+//            "1024" -> "吊拉窗户"
+//            "2048" -> "搭人梯"
+//            "4096" -> "站被子上做板报"
+            Integer otherSum = 0;
+            for (CaveatVo caveatVo : caveatList) {
+                Integer caveatType = caveatVo.getCaveatType();
+                switch (caveatType) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 8:
+                    case 16:
+                    case 32:
+                    case 64:
+                    case 128:
+                    case 512:
+                    case 1024:
+                    case 2048:
+                    case 4096:
+                        caveatTempList.add(caveatVo);
+                        break;
+                    default:
+                        otherSum = otherSum+caveatVo.getSum();
+                        break;
+                }
+            }
+            CaveatVo otherCaveatVo = new CaveatVo();
+            otherCaveatVo.setCaveatType(-1);
+            otherCaveatVo.setSum(otherSum);
+            caveatTempList.add(otherCaveatVo);
+        }
+
+
+        return ServerResponse.createBySuccessMessageAndData("统计警报", caveatTempList);
     }
 
 
