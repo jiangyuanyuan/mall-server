@@ -39,7 +39,7 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
 //        } else {
 //            PageHelper.orderBy("picture_type desc");
 //        }
-        PageHelper.orderBy("picture_type asc");
+//        PageHelper.orderBy("picture_type asc");
         List<AlarmMsg> alarmMsgList = alarmMsgMapper.getTodayList();
         PageInfo pageInfo = new PageInfo(alarmMsgList);
         return ServerResponse.createBySuccessMessageAndData("分页查询", pageInfo);
