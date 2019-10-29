@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmall.dao.AlarmMsgNameMapper" >
+  <resultMap id="BaseResultMap" type="com.mmall.pojo.AlarmMsgName" >
+    <constructor >
+      <arg column="warnType" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="warnName" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parse1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parse2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parse3" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.mmall.pojo.AlarmMsgName" >
+    insert into table_alarm_type_name (warnType, warnName, parse1, 
+      parse2, parse3)
+    values (#{warntype,jdbcType=INTEGER}, #{warnname,jdbcType=VARCHAR}, #{parse1,jdbcType=VARCHAR}, 
+      #{parse2,jdbcType=VARCHAR}, #{parse3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mmall.pojo.AlarmMsgName" >
+    insert into table_alarm_type_name
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="warntype != null" >
+        warnType,
+      </if>
+      <if test="warnname != null" >
+        warnName,
+      </if>
+      <if test="parse1 != null" >
+        parse1,
+      </if>
+      <if test="parse2 != null" >
+        parse2,
+      </if>
+      <if test="parse3 != null" >
+        parse3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="warntype != null" >
+        #{warntype,jdbcType=INTEGER},
+      </if>
+      <if test="warnname != null" >
+        #{warnname,jdbcType=VARCHAR},
+      </if>
+      <if test="parse1 != null" >
+        #{parse1,jdbcType=VARCHAR},
+      </if>
+      <if test="parse2 != null" >
+        #{parse2,jdbcType=VARCHAR},
+      </if>
+      <if test="parse3 != null" >
+        #{parse3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
