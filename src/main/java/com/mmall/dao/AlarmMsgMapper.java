@@ -2,6 +2,7 @@ package com.mmall.dao;
 
 import com.mmall.pojo.AlarmMsg;
 import com.mmall.pojo.Shipping;
+import com.mmall.vo.AlarmMsgVo;
 import com.mmall.vo.CaveatVo;
 import com.mmall.vo.SingleStatisticsVo;
 import org.apache.ibatis.annotations.Param;
@@ -23,8 +24,8 @@ public interface AlarmMsgMapper {
 
 
     List<AlarmMsg> getNewest();
-    List<AlarmMsg> getTodayList();
-    List<AlarmMsg> selectList();
+    List<AlarmMsgVo> getTodayList();
+    List<AlarmMsgVo> selectList();
 //    List<AlarmMsg> selectByTime(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);
 //    List<AlarmMsg> getListByMonth(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);
 //    List<AlarmMsg> getListByYear(@Param("timeNumber") Integer timeNumber,@Param("sortType") Integer sortType);

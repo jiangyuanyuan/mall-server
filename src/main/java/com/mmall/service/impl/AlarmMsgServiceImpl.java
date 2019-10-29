@@ -7,6 +7,7 @@ import com.mmall.dao.AlarmMsgMapper;
 import com.mmall.pojo.AlarmMsg;
 import com.mmall.service.IAlarmMsgService;
 import com.mmall.util.DateTimeUtil;
+import com.mmall.vo.AlarmMsgVo;
 import com.mmall.vo.CaveatVo;
 import com.mmall.vo.SingleStatisticsVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
 //            PageHelper.orderBy("picture_type desc");
 //        }
 //        PageHelper.orderBy("picture_type asc");
-        List<AlarmMsg> alarmMsgList = alarmMsgMapper.getTodayList();
+        List<AlarmMsgVo> alarmMsgList = alarmMsgMapper.getTodayList();
         PageInfo pageInfo = new PageInfo(alarmMsgList);
         return ServerResponse.createBySuccessMessageAndData("分页查询", pageInfo);
     }
@@ -55,7 +56,7 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
             PageHelper.orderBy("id desc");
         }
 
-        List<AlarmMsg> alarmMsgList = alarmMsgMapper.selectList();
+        List<AlarmMsgVo> alarmMsgList = alarmMsgMapper.selectList();
         PageInfo pageInfo = new PageInfo(alarmMsgList);
         return ServerResponse.createBySuccessMessageAndData("分页查询", pageInfo);
     }
@@ -133,9 +134,12 @@ public class AlarmMsgServiceImpl implements IAlarmMsgService {
                         break;
                 }
             }
+
             CaveatVo otherCaveatVo = new CaveatVo();
+
             otherCaveatVo.setCaveatType(-1);
             otherCaveatVo.setSum(otherSum);
+            otherCaveatVo.setWarnName("其他");
             caveatTempList.add(otherCaveatVo);
         }
 

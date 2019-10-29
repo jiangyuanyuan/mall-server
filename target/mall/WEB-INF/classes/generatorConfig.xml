@@ -80,7 +80,8 @@
             <!--<columnOverride column="detail" jdbcType="VARCHAR" />-->
             <!--<columnOverride column="sub_images" jdbcType="VARCHAR" />-->
         <!--</table>-->
-        <table tableName="table_alarm_savemsg" domainObjectName="AlarmMsg" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <!--<table tableName="table_alarm_savemsg" domainObjectName="AlarmMsg" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <table tableName="table_alarm_type_name" domainObjectName="AlarmMsgName" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 
 
         <!-- geelynote mybatis插件的搭建 -->

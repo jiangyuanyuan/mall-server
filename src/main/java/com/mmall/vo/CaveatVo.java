@@ -25,5 +25,14 @@ public class CaveatVo {
 
     private Integer sum;
     private Integer caveatType;
+    private String warnName;
 
+
+    public String getWarnName() {
+        return warnName;
+    }
+
+    public void setWarnName(String warnName) {
+        this.warnName = warnName;
+    }
 }

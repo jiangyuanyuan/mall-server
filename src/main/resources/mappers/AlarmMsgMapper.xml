@@ -14,6 +14,22 @@
       <arg column="parse" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
+  <resultMap id="BaseResultMap2" type="com.mmall.vo.AlarmMsgVo" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="cellid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="sensorid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="alarm_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="picture_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="alarm_picture_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="alarm_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="alarm_reason" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="parse" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="warnName" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+
+
   <sql id="Base_Column_List" >
     id, cellid, sensorid, alarm_time, picture_type, alarm_picture_name, alarm_type, alarm_reason, 
     parse
@@ -190,58 +206,65 @@
     DATE_FORMAT( alarm_time, '%Y' )
 </select>
 
-
-  <select id="selectList" resultMap="BaseResultMap" parameterType="map" flushCache="true">
+  <select id="selectList" resultMap="BaseResultMap2" parameterType="map">
     select
-    <include refid="Base_Column_List"/>
-    from table_alarm_savemsg
+    m.id, m.cellid, m.sensorid, m.alarm_time, m.picture_type, m.alarm_picture_name, m.alarm_type, m.alarm_reason,
+    m.parse,
+    n.warnName AS warnName
+    FROM table_alarm_savemsg m Left JOIN table_alarm_type_name n ON m.alarm_type = n.warnType
   </select>
 
 
-  <select id="getTodayList" resultMap="BaseResultMap" parameterType="map" flushCache="true">
+  <select id="getTodayList" resultMap="BaseResultMap2" parameterType="map" >
     SELECT
-    <include refid="Base_Column_List"/>
-    FROM table_alarm_savemsg
-    ORDER BY alarm_time desc
+    m.id, m.cellid, m.sensorid, m.alarm_time, m.picture_type, m.alarm_picture_name, m.alarm_type, m.alarm_reason,
+    m.parse,
+    n.warnName AS warnName
+    FROM table_alarm_savemsg m Left JOIN table_alarm_type_name n ON m.alarm_type = n.warnType
+    ORDER BY m.alarm_time desc
   </select>
 
 
-  <select id="getNewest" resultMap="BaseResultMap" parameterType="map" flushCache="true">
+  <select id="getNewest" resultMap="BaseResultMap" parameterType="map" >
    SELECT <include refid="Base_Column_List"/> FROM table_alarm_savemsg ORDER BY id DESC LIMIT 1
   </select>
 
 
   <select id="getCaveatByDay" resultType="com.mmall.vo.CaveatVo" parameterType="map">
     SELECT
-    alarm_type AS caveatType,
-    COUNT( 1 ) AS sum
+    m.alarm_type AS caveatType,
+    COUNT( 1 ) AS sum,
+    n.warnName AS warnName
     FROM
-    table_alarm_savemsg
+    table_alarm_savemsg m Left JOIN table_alarm_type_name n ON m.alarm_type = n.warnType
     WHERE  alarm_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} DAY )
     GROUP BY
-    alarm_type
+    m.alarm_type
   </select>
 
   <select id="getCaveatByMonth" resultType="com.mmall.vo.CaveatVo" parameterType="map">
     SELECT
-    alarm_type AS caveatType,
-    COUNT( 1 ) AS sum
+    m.alarm_type AS caveatType,
+    COUNT( 1 ) AS sum,
+    n.warnName AS warnName
     FROM
-    table_alarm_savemsg
-    WHERE  alarm_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} month )
+    table_alarm_savemsg m Left JOIN table_alarm_type_name n ON m.alarm_type = n.warnType
+    WHERE  m.alarm_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} month )
     GROUP BY
-    alarm_type
+    m.alarm_type
   </select>
 
   <select id="getCaveatByYear" resultType="com.mmall.vo.CaveatVo" parameterType="map">
     SELECT
-    alarm_type AS caveatType,
-    COUNT( 1 ) AS sum
+    m.alarm_type AS caveatType,
+    COUNT( 1 ) AS sum,
+    n.warnName AS warnName
     FROM
-    table_alarm_savemsg
+    FROM
+    table_alarm_savemsg m Left JOIN table_alarm_type_name n ON m.alarm_type = n.warnType
     WHERE  alarm_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} year )
     GROUP BY
-    alarm_type
+    m.alarm_type
   </select>
 
 </mapper>
