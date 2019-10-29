@@ -202,8 +202,7 @@
     SELECT
     <include refid="Base_Column_List"/>
     FROM table_alarm_savemsg
-    WHERE to_days(alarm_time) = to_days(now())
-    ORDER BY picture_type asc,alarm_time desc
+    ORDER BY alarm_time desc
   </select>
 
 
