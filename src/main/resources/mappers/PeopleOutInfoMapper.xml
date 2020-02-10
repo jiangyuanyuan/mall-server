@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmall.dao.PeopleOutInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mmall.pojo.PeopleOutInfo" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="out_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="back_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="sub_com" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="sub_street" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="sub_area" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="sub_provice" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="picid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="sensorid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="parse1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parse2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parse3" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, out_time, back_time, sub_com, sub_street, sub_area, sub_provice, picid, sensorid, 
+    parse1, parse2, parse3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from people_out_info_table
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from people_out_info_table
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mmall.pojo.PeopleOutInfo" >
+    insert into people_out_info_table (id, out_time, back_time, 
+      sub_com, sub_street, sub_area, 
+      sub_provice, picid, sensorid, 
+      parse1, parse2, parse3
+      )
+    values (#{id,jdbcType=INTEGER}, #{outTime,jdbcType=TIMESTAMP}, #{backTime,jdbcType=TIMESTAMP}, 
+      #{subCom,jdbcType=INTEGER}, #{subStreet,jdbcType=INTEGER}, #{subArea,jdbcType=INTEGER}, 
+      #{subProvice,jdbcType=INTEGER}, #{picid,jdbcType=INTEGER}, #{sensorid,jdbcType=INTEGER}, 
+      #{parse1,jdbcType=VARCHAR}, #{parse2,jdbcType=VARCHAR}, #{parse3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mmall.pojo.PeopleOutInfo" >
+    insert into people_out_info_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="outTime != null" >
+        out_time,
+      </if>
+      <if test="backTime != null" >
+        back_time,
+      </if>
+      <if test="subCom != null" >
+        sub_com,
+      </if>
+      <if test="subStreet != null" >
+        sub_street,
+      </if>
+      <if test="subArea != null" >
+        sub_area,
+      </if>
+      <if test="subProvice != null" >
+        sub_provice,
+      </if>
+      <if test="picid != null" >
+        picid,
+      </if>
+      <if test="sensorid != null" >
+        sensorid,
+      </if>
+      <if test="parse1 != null" >
+        parse1,
+      </if>
+      <if test="parse2 != null" >
+        parse2,
+      </if>
+      <if test="parse3 != null" >
+        parse3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="outTime != null" >
+        #{outTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backTime != null" >
+        #{backTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subCom != null" >
+        #{subCom,jdbcType=INTEGER},
+      </if>
+      <if test="subStreet != null" >
+        #{subStreet,jdbcType=INTEGER},
+      </if>
+      <if test="subArea != null" >
+        #{subArea,jdbcType=INTEGER},
+      </if>
+      <if test="subProvice != null" >
+        #{subProvice,jdbcType=INTEGER},
+      </if>
+      <if test="picid != null" >
+        #{picid,jdbcType=INTEGER},
+      </if>
+      <if test="sensorid != null" >
+        #{sensorid,jdbcType=INTEGER},
+      </if>
+      <if test="parse1 != null" >
+        #{parse1,jdbcType=VARCHAR},
+      </if>
+      <if test="parse2 != null" >
+        #{parse2,jdbcType=VARCHAR},
+      </if>
+      <if test="parse3 != null" >
+        #{parse3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.PeopleOutInfo" >
+    update people_out_info_table
+    <set >
+      <if test="outTime != null" >
+        out_time = #{outTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backTime != null" >
+        back_time = #{backTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subCom != null" >
+        sub_com = #{subCom,jdbcType=INTEGER},
+      </if>
+      <if test="subStreet != null" >
+        sub_street = #{subStreet,jdbcType=INTEGER},
+      </if>
+      <if test="subArea != null" >
+        sub_area = #{subArea,jdbcType=INTEGER},
+      </if>
+      <if test="subProvice != null" >
+        sub_provice = #{subProvice,jdbcType=INTEGER},
+      </if>
+      <if test="picid != null" >
+        picid = #{picid,jdbcType=INTEGER},
+      </if>
+      <if test="sensorid != null" >
+        sensorid = #{sensorid,jdbcType=INTEGER},
+      </if>
+      <if test="parse1 != null" >
+        parse1 = #{parse1,jdbcType=VARCHAR},
+      </if>
+      <if test="parse2 != null" >
+        parse2 = #{parse2,jdbcType=VARCHAR},
+      </if>
+      <if test="parse3 != null" >
+        parse3 = #{parse3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mmall.pojo.PeopleOutInfo" >
+    update people_out_info_table
+    set out_time = #{outTime,jdbcType=TIMESTAMP},
+      back_time = #{backTime,jdbcType=TIMESTAMP},
+      sub_com = #{subCom,jdbcType=INTEGER},
+      sub_street = #{subStreet,jdbcType=INTEGER},
+      sub_area = #{subArea,jdbcType=INTEGER},
+      sub_provice = #{subProvice,jdbcType=INTEGER},
+      picid = #{picid,jdbcType=INTEGER},
+      sensorid = #{sensorid,jdbcType=INTEGER},
+      parse1 = #{parse1,jdbcType=VARCHAR},
+      parse2 = #{parse2,jdbcType=VARCHAR},
+      parse3 = #{parse3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="getListByTime" resultType="com.mmall.vo.SingleStatisticsVo" parameterType="java.lang.Integer">
+    SELECT
+    DATE_FORMAT( out_time, '%Y%m%d' ) AS day,
+    COUNT( 1 ) AS sum
+    FROM
+    people_out_info_table
+    WHERE  out_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} DAY )
+    GROUP BY
+    DATE_FORMAT( out_time, '%Y%m%d' )
+  </select>
+
+  <select id="selectList" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
+    select
+    o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
+    o.parse1, o.parse2, o.parse3,
+    p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2
+    from people_out_info_table o,pic_info_table p
+    where o.picid=p.picid
+  </select>
+
+  <select id="search" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
+    select
+    o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
+    o.parse1, o.parse2, o.parse3,
+    p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2
+    from people_out_info_table o,pic_info_table p
+    where o.picid=p.picid AND o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP};
+  </select>
+
+
+</mapper>

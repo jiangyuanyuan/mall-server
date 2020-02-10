@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmall.dao.PicnfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mmall.pojo.Picnfo" >
+    <constructor >
+      <idArg column="picid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <idArg column="sensorid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="pic_path_out" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pic_path_in" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parse1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parse2" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    picid, sensorid, pic_path_out, pic_path_in, parse1, parse2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.mmall.pojo.PicnfoKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from pic_info_table
+    where picid = #{picid,jdbcType=INTEGER}
+      and sensorid = #{sensorid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.mmall.pojo.PicnfoKey" >
+    delete from pic_info_table
+    where picid = #{picid,jdbcType=INTEGER}
+      and sensorid = #{sensorid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mmall.pojo.Picnfo" >
+    insert into pic_info_table (picid, sensorid, pic_path_out, 
+      pic_path_in, parse1, parse2
+      )
+    values (#{picid,jdbcType=INTEGER}, #{sensorid,jdbcType=INTEGER}, #{picPathOut,jdbcType=VARCHAR}, 
+      #{picPathIn,jdbcType=VARCHAR}, #{parse1,jdbcType=VARCHAR}, #{parse2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mmall.pojo.Picnfo" >
+    insert into pic_info_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="picid != null" >
+        picid,
+      </if>
+      <if test="sensorid != null" >
+        sensorid,
+      </if>
+      <if test="picPathOut != null" >
+        pic_path_out,
+      </if>
+      <if test="picPathIn != null" >
+        pic_path_in,
+      </if>
+      <if test="parse1 != null" >
+        parse1,
+      </if>
+      <if test="parse2 != null" >
+        parse2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="picid != null" >
+        #{picid,jdbcType=INTEGER},
+      </if>
+      <if test="sensorid != null" >
+        #{sensorid,jdbcType=INTEGER},
+      </if>
+      <if test="picPathOut != null" >
+        #{picPathOut,jdbcType=VARCHAR},
+      </if>
+      <if test="picPathIn != null" >
+        #{picPathIn,jdbcType=VARCHAR},
+      </if>
+      <if test="parse1 != null" >
+        #{parse1,jdbcType=VARCHAR},
+      </if>
+      <if test="parse2 != null" >
+        #{parse2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.Picnfo" >
+    update pic_info_table
+    <set >
+      <if test="picPathOut != null" >
+        pic_path_out = #{picPathOut,jdbcType=VARCHAR},
+      </if>
+      <if test="picPathIn != null" >
+        pic_path_in = #{picPathIn,jdbcType=VARCHAR},
+      </if>
+      <if test="parse1 != null" >
+        parse1 = #{parse1,jdbcType=VARCHAR},
+      </if>
+      <if test="parse2 != null" >
+        parse2 = #{parse2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where picid = #{picid,jdbcType=INTEGER}
+      and sensorid = #{sensorid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mmall.pojo.Picnfo" >
+    update pic_info_table
+    set pic_path_out = #{picPathOut,jdbcType=VARCHAR},
+      pic_path_in = #{picPathIn,jdbcType=VARCHAR},
+      parse1 = #{parse1,jdbcType=VARCHAR},
+      parse2 = #{parse2,jdbcType=VARCHAR}
+    where picid = #{picid,jdbcType=INTEGER}
+      and sensorid = #{sensorid,jdbcType=INTEGER}
+  </update>
+</mapper>

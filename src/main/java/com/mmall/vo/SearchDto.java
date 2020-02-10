@@ -1,12 +1,19 @@
 package com.mmall.vo;
 
+import java.util.Date;
+
 /**
  * Created by jiangyuanyuan on 15/09/2019.
  */
-public class AlarmMsgDto {
+public class SearchDto {
     private Integer sortType;
     private Integer pageNum;
     private Integer pageSize;
+
+    private Date startTime;
+    private Date endTime;
+
+
 
     public Integer getSortType() {
         return sortType;
@@ -33,4 +40,20 @@ public class AlarmMsgDto {
     }
 
 
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
 }

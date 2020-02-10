@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmall.dao.LocalInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mmall.pojo.LocalInfo" >
+    <constructor >
+      <idArg column="local_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="local_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="attr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="phone" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parse1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parse2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parse3" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    local_id, local_name, attr, phone, parse1, parse2, parse3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from local_info_table
+    where local_id = #{localId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from local_info_table
+    where local_id = #{localId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mmall.pojo.LocalInfo" >
+    insert into local_info_table (local_id, local_name, attr, 
+      phone, parse1, parse2, 
+      parse3)
+    values (#{localId,jdbcType=INTEGER}, #{localName,jdbcType=VARCHAR}, #{attr,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{parse1,jdbcType=VARCHAR}, #{parse2,jdbcType=VARCHAR}, 
+      #{parse3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mmall.pojo.LocalInfo" >
+    insert into local_info_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="localId != null" >
+        local_id,
+      </if>
+      <if test="localName != null" >
+        local_name,
+      </if>
+      <if test="attr != null" >
+        attr,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="parse1 != null" >
+        parse1,
+      </if>
+      <if test="parse2 != null" >
+        parse2,
+      </if>
+      <if test="parse3 != null" >
+        parse3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="localId != null" >
+        #{localId,jdbcType=INTEGER},
+      </if>
+      <if test="localName != null" >
+        #{localName,jdbcType=VARCHAR},
+      </if>
+      <if test="attr != null" >
+        #{attr,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="parse1 != null" >
+        #{parse1,jdbcType=VARCHAR},
+      </if>
+      <if test="parse2 != null" >
+        #{parse2,jdbcType=VARCHAR},
+      </if>
+      <if test="parse3 != null" >
+        #{parse3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.LocalInfo" >
+    update local_info_table
+    <set >
+      <if test="localName != null" >
+        local_name = #{localName,jdbcType=VARCHAR},
+      </if>
+      <if test="attr != null" >
+        attr = #{attr,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="parse1 != null" >
+        parse1 = #{parse1,jdbcType=VARCHAR},
+      </if>
+      <if test="parse2 != null" >
+        parse2 = #{parse2,jdbcType=VARCHAR},
+      </if>
+      <if test="parse3 != null" >
+        parse3 = #{parse3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where local_id = #{localId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mmall.pojo.LocalInfo" >
+    update local_info_table
+    set local_name = #{localName,jdbcType=VARCHAR},
+      attr = #{attr,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      parse1 = #{parse1,jdbcType=VARCHAR},
+      parse2 = #{parse2,jdbcType=VARCHAR},
+      parse3 = #{parse3,jdbcType=VARCHAR}
+    where local_id = #{localId,jdbcType=INTEGER}
+  </update>
+</mapper>
