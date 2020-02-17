@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmall.dao.ComInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mmall.pojo.ComInfo" >
+    <constructor >
+      <idArg column="comid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="comname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bl_streetid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="parse" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    comid, comname, bl_streetid, parse
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from com_info_table
+    where comid = #{comid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from com_info_table
+    where comid = #{comid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mmall.pojo.ComInfo" >
+    insert into com_info_table (comid, comname, bl_streetid, 
+      parse)
+    values (#{comid,jdbcType=INTEGER}, #{comname,jdbcType=VARCHAR}, #{blStreetid,jdbcType=INTEGER}, 
+      #{parse,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mmall.pojo.ComInfo" >
+    insert into com_info_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="comid != null" >
+        comid,
+      </if>
+      <if test="comname != null" >
+        comname,
+      </if>
+      <if test="blStreetid != null" >
+        bl_streetid,
+      </if>
+      <if test="parse != null" >
+        parse,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="comid != null" >
+        #{comid,jdbcType=INTEGER},
+      </if>
+      <if test="comname != null" >
+        #{comname,jdbcType=VARCHAR},
+      </if>
+      <if test="blStreetid != null" >
+        #{blStreetid,jdbcType=INTEGER},
+      </if>
+      <if test="parse != null" >
+        #{parse,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.ComInfo" >
+    update com_info_table
+    <set >
+      <if test="comname != null" >
+        comname = #{comname,jdbcType=VARCHAR},
+      </if>
+      <if test="blStreetid != null" >
+        bl_streetid = #{blStreetid,jdbcType=INTEGER},
+      </if>
+      <if test="parse != null" >
+        parse = #{parse,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where comid = #{comid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mmall.pojo.ComInfo" >
+    update com_info_table
+    set comname = #{comname,jdbcType=VARCHAR},
+      bl_streetid = #{blStreetid,jdbcType=INTEGER},
+      parse = #{parse,jdbcType=VARCHAR}
+    where comid = #{comid,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from com_info_table
+    where bl_streetid = #{bl_streetid,jdbcType=INTEGER}
+  </select>
+
+</mapper>

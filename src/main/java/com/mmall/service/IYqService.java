@@ -7,6 +7,10 @@ import java.util.Date;
 public interface IYqService {
     ServerResponse login(String username, String password);
 
+    ServerResponse getBelowLocals(Integer localId,Integer type);
+
+    ServerResponse getUserBelowLocals(String localId);
+
     ServerResponse getListByTime(int timeType,int sortType,String localId);
 
     ServerResponse getList(int sortType,int pageNum, int pageSize,String localId);

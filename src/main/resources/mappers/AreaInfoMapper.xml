@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmall.dao.AreaInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mmall.pojo.AreaInfo" >
+    <constructor >
+      <idArg column="areaid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="areaname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bl_provid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="parse" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    areaid, areaname, bl_provid, parse
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from area_info_table
+    where areaid = #{areaid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from area_info_table
+    where areaid = #{areaid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mmall.pojo.AreaInfo" >
+    insert into area_info_table (areaid, areaname, bl_provid, 
+      parse)
+    values (#{areaid,jdbcType=INTEGER}, #{areaname,jdbcType=VARCHAR}, #{blProvid,jdbcType=INTEGER}, 
+      #{parse,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mmall.pojo.AreaInfo" >
+    insert into area_info_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="areaid != null" >
+        areaid,
+      </if>
+      <if test="areaname != null" >
+        areaname,
+      </if>
+      <if test="blProvid != null" >
+        bl_provid,
+      </if>
+      <if test="parse != null" >
+        parse,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="areaid != null" >
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="blProvid != null" >
+        #{blProvid,jdbcType=INTEGER},
+      </if>
+      <if test="parse != null" >
+        #{parse,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.AreaInfo" >
+    update area_info_table
+    <set >
+      <if test="areaname != null" >
+        areaname = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="blProvid != null" >
+        bl_provid = #{blProvid,jdbcType=INTEGER},
+      </if>
+      <if test="parse != null" >
+        parse = #{parse,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where areaid = #{areaid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mmall.pojo.AreaInfo" >
+    update area_info_table
+    set areaname = #{areaname,jdbcType=VARCHAR},
+      bl_provid = #{blProvid,jdbcType=INTEGER},
+      parse = #{parse,jdbcType=VARCHAR}
+    where areaid = #{areaid,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from area_info_table
+    where bl_provid = #{bl_provid,jdbcType=INTEGER}
+  </select>
+
+</mapper>

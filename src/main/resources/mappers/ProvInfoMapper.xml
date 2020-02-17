@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmall.dao.ProvInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mmall.pojo.ProvInfo" >
+    <constructor >
+      <idArg column="provid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="provname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parse" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    provid, provname, parse
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from prov_info_table
+    where provid = #{provid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from prov_info_table
+    where provid = #{provid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mmall.pojo.ProvInfo" >
+    insert into prov_info_table (provid, provname, parse
+      )
+    values (#{provid,jdbcType=INTEGER}, #{provname,jdbcType=VARCHAR}, #{parse,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mmall.pojo.ProvInfo" >
+    insert into prov_info_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="provid != null" >
+        provid,
+      </if>
+      <if test="provname != null" >
+        provname,
+      </if>
+      <if test="parse != null" >
+        parse,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="provid != null" >
+        #{provid,jdbcType=INTEGER},
+      </if>
+      <if test="provname != null" >
+        #{provname,jdbcType=VARCHAR},
+      </if>
+      <if test="parse != null" >
+        #{parse,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.ProvInfo" >
+    update prov_info_table
+    <set >
+      <if test="provname != null" >
+        provname = #{provname,jdbcType=VARCHAR},
+      </if>
+      <if test="parse != null" >
+        parse = #{parse,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where provid = #{provid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mmall.pojo.ProvInfo" >
+    update prov_info_table
+    set provname = #{provname,jdbcType=VARCHAR},
+      parse = #{parse,jdbcType=VARCHAR}
+    where provid = #{provid,jdbcType=INTEGER}
+  </update>
+</mapper>

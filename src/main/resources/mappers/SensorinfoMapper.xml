@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmall.dao.SensorinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mmall.pojo.Sensorinfo" >
+    <constructor >
+      <idArg column="sensorid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="bl_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bl_comid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="parse" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sensorid, bl_name, bl_comid, parse
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sensor_info_table
+    where sensorid = #{sensorid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sensor_info_table
+    where sensorid = #{sensorid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mmall.pojo.Sensorinfo" >
+    insert into sensor_info_table (sensorid, bl_name, bl_comid, 
+      parse)
+    values (#{sensorid,jdbcType=INTEGER}, #{blName,jdbcType=VARCHAR}, #{blComid,jdbcType=INTEGER}, 
+      #{parse,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mmall.pojo.Sensorinfo" >
+    insert into sensor_info_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sensorid != null" >
+        sensorid,
+      </if>
+      <if test="blName != null" >
+        bl_name,
+      </if>
+      <if test="blComid != null" >
+        bl_comid,
+      </if>
+      <if test="parse != null" >
+        parse,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sensorid != null" >
+        #{sensorid,jdbcType=INTEGER},
+      </if>
+      <if test="blName != null" >
+        #{blName,jdbcType=VARCHAR},
+      </if>
+      <if test="blComid != null" >
+        #{blComid,jdbcType=INTEGER},
+      </if>
+      <if test="parse != null" >
+        #{parse,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.Sensorinfo" >
+    update sensor_info_table
+    <set >
+      <if test="blName != null" >
+        bl_name = #{blName,jdbcType=VARCHAR},
+      </if>
+      <if test="blComid != null" >
+        bl_comid = #{blComid,jdbcType=INTEGER},
+      </if>
+      <if test="parse != null" >
+        parse = #{parse,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sensorid = #{sensorid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mmall.pojo.Sensorinfo" >
+    update sensor_info_table
+    set bl_name = #{blName,jdbcType=VARCHAR},
+      bl_comid = #{blComid,jdbcType=INTEGER},
+      parse = #{parse,jdbcType=VARCHAR}
+    where sensorid = #{sensorid,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from sensor_info_table
+    where bl_comid = #{bl_comid,jdbcType=INTEGER}
+  </select>
+</mapper>

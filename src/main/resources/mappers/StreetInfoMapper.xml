@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmall.dao.StreetInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mmall.pojo.StreetInfo" >
+    <constructor >
+      <idArg column="streetid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="streetname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bl_areaid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="parse" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    streetid, streetname, bl_areaid, parse
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from street_info_table
+    where streetid = #{streetid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from street_info_table
+    where streetid = #{streetid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mmall.pojo.StreetInfo" >
+    insert into street_info_table (streetid, streetname, bl_areaid, 
+      parse)
+    values (#{streetid,jdbcType=INTEGER}, #{streetname,jdbcType=VARCHAR}, #{blAreaid,jdbcType=INTEGER}, 
+      #{parse,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mmall.pojo.StreetInfo" >
+    insert into street_info_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="streetid != null" >
+        streetid,
+      </if>
+      <if test="streetname != null" >
+        streetname,
+      </if>
+      <if test="blAreaid != null" >
+        bl_areaid,
+      </if>
+      <if test="parse != null" >
+        parse,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="streetid != null" >
+        #{streetid,jdbcType=INTEGER},
+      </if>
+      <if test="streetname != null" >
+        #{streetname,jdbcType=VARCHAR},
+      </if>
+      <if test="blAreaid != null" >
+        #{blAreaid,jdbcType=INTEGER},
+      </if>
+      <if test="parse != null" >
+        #{parse,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.StreetInfo" >
+    update street_info_table
+    <set >
+      <if test="streetname != null" >
+        streetname = #{streetname,jdbcType=VARCHAR},
+      </if>
+      <if test="blAreaid != null" >
+        bl_areaid = #{blAreaid,jdbcType=INTEGER},
+      </if>
+      <if test="parse != null" >
+        parse = #{parse,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where streetid = #{streetid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mmall.pojo.StreetInfo" >
+    update street_info_table
+    set streetname = #{streetname,jdbcType=VARCHAR},
+      bl_areaid = #{blAreaid,jdbcType=INTEGER},
+      parse = #{parse,jdbcType=VARCHAR}
+    where streetid = #{streetid,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from street_info_table
+    where bl_areaid = #{bl_areaid,jdbcType=INTEGER}
+  </select>
+</mapper>

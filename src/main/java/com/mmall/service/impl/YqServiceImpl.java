@@ -4,11 +4,10 @@ package com.mmall.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mmall.common.ServerResponse;
-import com.mmall.dao.PeopleOutInfoMapper;
-import com.mmall.dao.UserInfoMapper;
-import com.mmall.dao.UserMapper;
+import com.mmall.dao.*;
 import com.mmall.pojo.*;
 import com.mmall.service.IYqService;
+import com.mmall.vo.BlocalVo;
 import com.mmall.vo.PeopleOutInfoVo;
 import com.mmall.vo.SingleStatisticsVo;
 import org.apache.commons.lang.StringUtils;
@@ -32,6 +31,21 @@ public class YqServiceImpl implements IYqService {
     @Autowired
     PeopleOutInfoMapper peopleOutInfoMapper;
 
+    @Autowired
+    ProvInfoMapper provInfoMapper;//市
+
+    @Autowired
+    AreaInfoMapper areaInfoMapper;//区
+
+    @Autowired
+    StreetInfoMapper streetInfoMapper;//街道
+
+    @Autowired
+    ComInfoMapper comInfoMapper;//社区
+
+    @Autowired
+    SensorinfoMapper sensorinfoMapper;//具体楼道
+
 
     /*
          登录
@@ -53,6 +67,90 @@ public class YqServiceImpl implements IYqService {
         UserVo userVo =new UserVo();
         userVo.setUserDto(user);
         return ServerResponse.createBySuccessMessageAndData("登录成功",userVo);
+    }
+
+    @Override
+    public ServerResponse getBelowLocals(Integer id,Integer type) {
+        List<BlocalVo> blocalVos = getBlocalVos(id, type);
+        return ServerResponse.createBySuccessMessageAndData("下属区域",blocalVos);
+    }
+
+
+    @Override
+    public ServerResponse getUserBelowLocals(String localId) {
+        String[] ids = localId.split("_");
+        List<BlocalVo> blocalVos = getBlocalVos(Integer.parseInt(ids[ids.length-1]),ids.length);
+        return ServerResponse.createBySuccessMessageAndData("下属区域",blocalVos);
+    }
+
+    private List<BlocalVo> getBlocalVos(Integer id, Integer type) {
+        List<BlocalVo> blocalVos = new ArrayList<>();
+        switch (type){
+//            case 1:
+//                List<ProvInfo> provInfos = provInfoMapper.selectById(Integer.parseInt(locals[0]));
+//                break;
+            case 1:
+                List<AreaInfo> areaInfos = areaInfoMapper.selectById(id);
+                if (areaInfos!=null&&areaInfos.size()>0){
+                    for (AreaInfo areaInfo : areaInfos) {
+                        BlocalVo blocalVo =  new BlocalVo();
+                        blocalVo.setId(areaInfo.getAreaid());
+                        blocalVo.setName(areaInfo.getAreaname());
+                        blocalVo.setBlId(areaInfo.getBlProvid());
+                        blocalVo.setParse(areaInfo.getParse());
+                        blocalVo.setType(2);
+                        blocalVos.add(blocalVo);
+                    }
+                }
+                break;
+            case 2:
+                List<StreetInfo> streetInfos = streetInfoMapper.selectById(id);
+                if (streetInfos!=null&&streetInfos.size()>0){
+                    for (StreetInfo streetInfo : streetInfos) {
+                        BlocalVo blocalVo =  new BlocalVo();
+                        blocalVo.setId(streetInfo.getStreetid());
+                        blocalVo.setName(streetInfo.getStreetname());
+                        blocalVo.setBlId(streetInfo.getBlAreaid());
+                        blocalVo.setParse(streetInfo.getParse());
+                        blocalVo.setType(3);
+                        blocalVos.add(blocalVo);
+                    }
+                }
+
+                break;
+            case 3:
+                List<ComInfo> comInfos = comInfoMapper.selectById(id);
+                if (comInfos!=null&&comInfos.size()>0){
+                    for (ComInfo comInfo : comInfos) {
+                        BlocalVo blocalVo =  new BlocalVo();
+                        blocalVo.setId(comInfo.getComid());
+                        blocalVo.setName(comInfo.getComname());
+                        blocalVo.setBlId(comInfo.getBlStreetid());
+                        blocalVo.setParse(comInfo.getParse());
+                        blocalVo.setType(4);
+                        blocalVos.add(blocalVo);
+                    }
+                }
+
+                break;
+            case 4:
+                List<Sensorinfo> sensorinfos = sensorinfoMapper.selectById(id);
+                if (sensorinfos!=null&&sensorinfos.size()>0){
+                    for (Sensorinfo sensorinfo : sensorinfos) {
+                        BlocalVo blocalVo =  new BlocalVo();
+                        blocalVo.setId(sensorinfo.getSensorid());
+                        blocalVo.setName(sensorinfo.getBlName());
+                        blocalVo.setBlId(sensorinfo.getBlComid());
+                        blocalVo.setParse(sensorinfo.getParse());
+                        blocalVo.setType(5);
+                        blocalVos.add(blocalVo);
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+        return blocalVos;
     }
 
 
