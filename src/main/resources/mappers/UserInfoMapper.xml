@@ -117,7 +117,7 @@
 
 
     SELECT
-    a.acct, a.passwd, a.local_id, a.state, a.parse1, a.parse2,
+    a.acct, a.passwd, a.local_id as localId, a.state, a.parse1, a.parse2,
     l.local_name as localName,l.attr as localAttr,
     l.phone as localPhone,l.parse1 as localParse1,
     l.parse2 as localParse2,l.parse3 as localParse3

@@ -16,6 +16,7 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
 import javax.security.auth.login.Configuration;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -24,7 +25,7 @@ import java.util.Map;
  * @author mengjicai
  *
  */
-class PushUtil {
+public class PushUtil {
 
     // 初始化app_key和masterSecret
     Configuration config;
@@ -32,13 +33,22 @@ class PushUtil {
     private static String MASTER_SECRET;
     private static String EXTRA;
 
+
+    public static void main(String[] args) {
+        HashMap map =  new HashMap();
+        map.put("msg","消息");
+        map.put("title","这是标题");
+        map.put("extra","额外的");
+        jpushAndroid(map);
+    }
+
     //static代码块,随着类加载时读取APP_KEY和MASTER_SECRET
     static {
         try {
            // Configuration config = new PropertiesConfiguration("jiguangConfig.properties");
             APP_KEY = "1f490c75885215e4ebd8d705";
             MASTER_SECRET = "995e07cc8b3b817e9dd6a84d";
-            EXTRA = "";
+            EXTRA = "EXTRA";
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -4,23 +4,24 @@ package com.mmall.controller.portal;
 import com.mmall.common.Const;
 import com.mmall.common.ResponseCode;
 import com.mmall.common.ServerResponse;
+import com.mmall.common.TokenCache;
 import com.mmall.pojo.LoginDto;
 import com.mmall.pojo.UserDto;
 import com.mmall.pojo.UserInfo;
-import com.mmall.service.IUserService;
+import com.mmall.pojo.UserVo;
 import com.mmall.service.IYqService;
 import com.mmall.util.MD5Util;
+import com.mmall.util.PushUtil;
 import com.mmall.vo.AlarmMsgDto;
 import com.mmall.vo.SearchDto;
 import com.mmall.vo.SingleStatisticsDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/yq/")
@@ -33,10 +34,13 @@ public class YqController {
     */
     @RequestMapping(value = "login.do", method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<UserInfo> login(@RequestBody LoginDto loginDto, HttpSession session) {
-        ServerResponse<UserInfo> response = iYqService.login(loginDto.getUserName(), MD5Util.MD5EncodeUtf8(loginDto.getPassWd()));
+    public ServerResponse<UserVo> login(@RequestBody LoginDto loginDto) {
+        ServerResponse<UserVo> response = iYqService.login(loginDto.getUserName(), MD5Util.MD5EncodeUtf8(loginDto.getPassWd()));
         if (response.isSuccess()) {
-            session.setAttribute(Const.CURRENT_USER, response.getData());
+//            session.setAttribute(Const.CURRENT_USER, response.getData());
+            String token = UUID.randomUUID().toString();
+            TokenCache.setKey(TokenCache.TOKEN_PREFIX+token,response.getData().getUserDto().getLocalId()+"");
+            response.getData().setToken(token);
         }
         return response;
     }
@@ -44,16 +48,16 @@ public class YqController {
     //统计
     @RequestMapping(value = "getListByTime.do", method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse statistics(@RequestBody SingleStatisticsDto singleStatisticsDto, HttpSession session) {
+    public ServerResponse statistics(@RequestBody SingleStatisticsDto singleStatisticsDto,@RequestHeader("Authorization") String token) {
         //统计该用户7天内所属区域的记录条数   每一天的
-
-        UserDto user = (UserDto) session.getAttribute(Const.CURRENT_USER);
-        if (user == null) {
+        String localId = TokenCache.getKey(TokenCache.TOKEN_PREFIX+token);
+//        UserInfo user = (UserInfo) session.getAttribute(Const.CURRENT_USER);
+        if (localId == null) {
             return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
 
 
-        return iYqService.getListByTime(singleStatisticsDto.getTimeNumber(), singleStatisticsDto.getSortType());
+        return iYqService.getListByTime(singleStatisticsDto.getTimeNumber(), singleStatisticsDto.getSortType(),localId);
 
     }
 
@@ -61,27 +65,51 @@ public class YqController {
 
     @RequestMapping(value = "getList.do", method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse getList(@RequestBody AlarmMsgDto alarmMsgDto, HttpSession session) {
-        UserDto user = (UserDto) session.getAttribute(Const.CURRENT_USER);
-        if (user == null) {
+    public ServerResponse getList(@RequestBody SearchDto alarmMsgDto, @RequestHeader("Authorization") String token) {
+        String localId = TokenCache.getKey(TokenCache.TOKEN_PREFIX+token);
+//        UserInfo user = (UserInfo) session.getAttribute(Const.CURRENT_USER);
+        if (localId == null) {
             return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
+        if (alarmMsgDto.getStartTime()==null||alarmMsgDto.getStartTime()==""||alarmMsgDto.getEndTime()==null||alarmMsgDto.getEndTime()==""){
+            return iYqService.getList(alarmMsgDto.getSortType(), alarmMsgDto.getPageNum(), alarmMsgDto.getPageSize(),localId);
+        }else {
+            return iYqService.search(alarmMsgDto.getSortType(), alarmMsgDto.getPageNum(), alarmMsgDto.getPageSize(), alarmMsgDto.getStartTime(), alarmMsgDto.getEndTime(),localId);
+        }
 
-        return iYqService.getList(alarmMsgDto.getSortType(), alarmMsgDto.getPageNum(), alarmMsgDto.getPageSize());
     }
 
+
+//    //查询
+//    @RequestMapping(value = "search.do", method = RequestMethod.POST)
+//    @ResponseBody
+//    public ServerResponse search(@RequestBody SearchDto alarmMsgDto, @RequestHeader("Authorization") String token) {
+//        String localId = TokenCache.getKey(TokenCache.TOKEN_PREFIX+token);
+////        UserInfo user = (UserInfo) session.getAttribute(Const.CURRENT_USER);
+//        if (localId == null) {
+//            return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+//        }
+//
+//
+//        return iYqService.search(alarmMsgDto.getSortType(), alarmMsgDto.getPageNum(), alarmMsgDto.getPageSize(), alarmMsgDto.getStartTime(), alarmMsgDto.getEndTime(),localId);
+//    }
 
     //查询
-    @RequestMapping(value = "search.do", method = RequestMethod.POST)
+    @RequestMapping(value = "push.do", method = RequestMethod.GET)
     @ResponseBody
-    public ServerResponse search(@RequestBody SearchDto alarmMsgDto, HttpSession session) {
-        UserDto user = (UserDto) session.getAttribute(Const.CURRENT_USER);
-        if (user == null) {
-            return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
-        }
+    public ServerResponse push() {
+//        UserInfo user = (UserInfo) session.getAttribute(Const.CURRENT_USER);
+//        if (user == null) {
+//            return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+//        }
+        HashMap map =  new HashMap();
+        map.put("msg","有数据更新了");
+        map.put("title","有数据更新");
+        map.put("extra","额外的");
+        PushUtil.jpushAndroid(map);
 
-        return iYqService.search(alarmMsgDto.getSortType(), alarmMsgDto.getPageNum(), alarmMsgDto.getPageSize(), alarmMsgDto.getStartTime(), alarmMsgDto.getEndTime());
+        return ServerResponse.createBySuccess();
     }
 
-    ;
+
 }

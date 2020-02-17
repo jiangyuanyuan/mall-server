@@ -30,6 +30,8 @@ public class UserDto {
 
 
 
+
+
     public UserDto(String acct, String passwd, Integer localId, String state, String parse1, String parse2,
                    String localName, String localAttr, String localPhone,
                    String localParse1, String localParse2, String localParse3) {

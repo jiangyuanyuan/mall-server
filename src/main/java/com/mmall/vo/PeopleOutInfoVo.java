@@ -38,8 +38,20 @@ public class PeopleOutInfoVo {
     private String picParse2;
 
 
+    private String localName;
+
+    private String localId;
+
+    private String localAttr;
+
+    private String localPhone;
+
+
+
+
     public PeopleOutInfoVo(Integer id, Date outTime, Date backTime, Integer subCom, Integer subStreet, Integer subArea, Integer subProvice, Integer picid, Integer sensorid, String parse1, String parse2, String parse3,
-                           String picPathOut,String picPathIn,String picParse1,String picParse2
+                           String picPathOut,String picPathIn,String picParse1,String picParse2,
+                           String localId,String localName,String localAttr,String localPhone
                            ) {
         this.id = id;
         this.outTime = outTime;
@@ -58,6 +70,12 @@ public class PeopleOutInfoVo {
         this.picPathIn = picPathIn;
         this.picParse1 = picParse1;
         this.picParse2 = picParse2;
+
+
+        this.localId = localId;
+        this.localName = localName;
+        this.localAttr = localAttr;
+        this.localPhone = localPhone;
     }
 
     public PeopleOutInfoVo() {
@@ -191,5 +209,37 @@ public class PeopleOutInfoVo {
 
     public void setPicParse2(String picParse2) {
         this.picParse2 = picParse2;
+    }
+
+    public String getLocalName() {
+        return localName;
+    }
+
+    public void setLocalName(String localName) {
+        this.localName = localName;
+    }
+
+    public String getLocalId() {
+        return localId;
+    }
+
+    public void setLocalId(String localId) {
+        this.localId = localId;
+    }
+
+    public String getLocalAttr() {
+        return localAttr;
+    }
+
+    public void setLocalAttr(String localAttr) {
+        this.localAttr = localAttr;
+    }
+
+    public String getLocalPhone() {
+        return localPhone;
+    }
+
+    public void setLocalPhone(String localPhone) {
+        this.localPhone = localPhone;
     }
 }

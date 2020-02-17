@@ -9,11 +9,16 @@ import com.mmall.dao.UserInfoMapper;
 import com.mmall.dao.UserMapper;
 import com.mmall.pojo.*;
 import com.mmall.service.IYqService;
+import com.mmall.vo.PeopleOutInfoVo;
 import com.mmall.vo.SingleStatisticsVo;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +37,7 @@ public class YqServiceImpl implements IYqService {
          登录
       */
     @Override
-    public ServerResponse<UserDto> login(String acct, String password) {
+    public ServerResponse<UserVo> login(String acct, String password) {
         System.out.println(acct+"   password:::::"+password);
         int resultCount = userMapper.checkUserName(acct);
         System.out.println("resultCount:::::"+resultCount);
@@ -45,21 +50,23 @@ public class YqServiceImpl implements IYqService {
             return ServerResponse.createByErrorMessage("密码错误");
         }
         user.setPasswd(StringUtils.EMPTY);
-        return ServerResponse.createBySuccessMessageAndData("登录成功",user);
+        UserVo userVo =new UserVo();
+        userVo.setUserDto(user);
+        return ServerResponse.createBySuccessMessageAndData("登录成功",userVo);
     }
 
 
     //统计
     @Override
-    public ServerResponse getListByTime(int timeNumber, int sortType) {
-        List<SingleStatisticsVo> alarmMsgList = peopleOutInfoMapper.getListByTime(timeNumber);
+    public ServerResponse getListByTime(int timeNumber, int sortType,String localId) {
+        List<SingleStatisticsVo> alarmMsgList = peopleOutInfoMapper.getListByTime(timeNumber,Integer.parseInt(localId));
         return ServerResponse.createBySuccessMessageAndData("统计数据", alarmMsgList);
     }
 
     //历史数据
 
     @Override
-    public ServerResponse getList(int sortType, int pageNum, int pageSize) {
+    public ServerResponse getList(int sortType, int pageNum, int pageSize,String localId) {
         PageHelper.startPage(pageNum, pageSize);
         if (sortType == 1) {
             PageHelper.orderBy("id asc");
@@ -67,7 +74,7 @@ public class YqServiceImpl implements IYqService {
             PageHelper.orderBy("id desc");
         }
 
-        List<PeopleOutInfo> peopleOutInfoList = peopleOutInfoMapper.selectList();
+        List<PeopleOutInfoVo> peopleOutInfoList = peopleOutInfoMapper.selectList(Integer.parseInt(localId));
         PageInfo pageInfo = new PageInfo(peopleOutInfoList);
         return ServerResponse.createBySuccessMessageAndData("分页查询", pageInfo);
     }
@@ -75,15 +82,23 @@ public class YqServiceImpl implements IYqService {
     //查询数据
 
     @Override
-    public ServerResponse search(int sortType, int pageNum, int pageSize, Date startTime,Date endTime) {
+    public ServerResponse search(int sortType, int pageNum, int pageSize, String startTime,String endTime,String localId) {
         PageHelper.startPage(pageNum, pageSize);
         if (sortType == 1) {
             PageHelper.orderBy("id asc");
         } else {
             PageHelper.orderBy("id desc");
         }
-
-        List<PeopleOutInfo> peopleOutInfoList = peopleOutInfoMapper.search(startTime,endTime);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");//注意月份是MM
+        List<PeopleOutInfoVo> peopleOutInfoList =  new ArrayList<>();
+        try {
+            Date startTimedate = simpleDateFormat.parse(startTime);
+            Date endTimedate = simpleDateFormat.parse(endTime);
+            List<PeopleOutInfoVo> peopleList = peopleOutInfoMapper.search(startTimedate,endTimedate,Integer.parseInt(localId));
+            peopleOutInfoList.addAll(peopleList);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         PageInfo pageInfo = new PageInfo(peopleOutInfoList);
         return ServerResponse.createBySuccessMessageAndData("分页查询", pageInfo);
     }

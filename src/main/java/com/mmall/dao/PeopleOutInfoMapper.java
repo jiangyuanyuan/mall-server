@@ -1,6 +1,7 @@
 package com.mmall.dao;
 
 import com.mmall.pojo.PeopleOutInfo;
+import com.mmall.vo.PeopleOutInfoVo;
 import com.mmall.vo.SingleStatisticsVo;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,12 +21,12 @@ public interface PeopleOutInfoMapper {
 
     int updateByPrimaryKey(PeopleOutInfo record);
 
-    List<SingleStatisticsVo> getListByTime(@Param("timeNumber") Integer timeNumber);
+    List<SingleStatisticsVo> getListByTime(@Param("timeNumber") Integer timeNumber,@Param("localId") Integer localId);
 
 
-    List<PeopleOutInfo> selectList();
+    List<PeopleOutInfoVo> selectList(@Param("localId") Integer localId);
 
-    List<PeopleOutInfo> search(@Param("startTime") Date startTime,@Param("endTime") Date endTime);
+    List<PeopleOutInfoVo> search(@Param("startTime") Date startTime,@Param("endTime") Date endTime,@Param("localId") Integer localId);
 
 
 }
