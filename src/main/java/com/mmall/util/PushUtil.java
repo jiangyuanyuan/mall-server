@@ -14,6 +14,8 @@ import cn.jpush.api.push.model.notification.IosNotification;
 import cn.jpush.api.push.model.notification.Notification;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.security.auth.login.Configuration;
 import java.util.HashMap;
@@ -25,138 +27,143 @@ import java.util.Map;
  * @author mengjicai
  *
  */
+
+
+
 public class PushUtil {
 
-    // 初始化app_key和masterSecret
-    Configuration config;
-    private static String APP_KEY;
-    private static String MASTER_SECRET;
-    private static String EXTRA;
+    private static PushUtil instance;
+    private JPushClient jpushClient;
+    //日志记录
+    private static Logger logger = LoggerFactory.getLogger(PushUtil.class);
 
+    /**
+     * 极光账户初始化
+     */
+    private PushUtil() {
+        //这里是账户 key 与masterSecret 建议从配置文件中读取
+        String appKey = "1f490c75885215e4ebd8d705";
+        String masterSecret = "995e07cc8b3b817e9dd6a84d";
+
+        if (appKey == null || masterSecret == null) {
+            throw new RuntimeException("极光推送账户初始化失败");
+        }
+        jpushClient = new JPushClient(masterSecret, appKey);
+    }
+
+    public static PushUtil getInstance() {
+        if (null == instance) {
+            synchronized (PushUtil.class) {
+                if (null == instance) {
+                    instance = new PushUtil();
+                }
+            }
+        }
+        return instance;
+    }
+//    Device===================================================
 
     public static void main(String[] args) {
-        HashMap map =  new HashMap();
-        map.put("msg","消息");
-        map.put("title","这是标题");
-        map.put("extra","额外的");
-        jpushAndroid(map);
+        PushUtil.getInstance().sendToRegistrationId("1111111",
+                "标题",
+                "标题",
+                "标题",
+                "标题");
     }
-
-    //static代码块,随着类加载时读取APP_KEY和MASTER_SECRET
-    static {
+    /**
+     * 推送给指定设备标识参数的用户（自定义消息通知）
+     *
+     * @param alias              设备标识 用户ID 别名
+     * @param notification_title 通知内容标题
+     * @param msg_title          消息内容标题
+     * @param msg_content        消息内容
+     * @param extrasparam        扩展字段（通常传跳转的链接）
+     * @return 0推送失败，1推送成功
+     */
+    public int sendToRegistrationId(String alias, String notification_title, String msg_title, String msg_content, String extrasparam) {
+        int result = 0;
         try {
-           // Configuration config = new PropertiesConfiguration("jiguangConfig.properties");
-            APP_KEY = "1f490c75885215e4ebd8d705";
-            MASTER_SECRET = "995e07cc8b3b817e9dd6a84d";
-            EXTRA = "EXTRA";
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
-    //极光推送>>Android
-    //Map<String, String> parm是我自己传过来的参数,可以自定义参数
-    public static void jpushAndroid(Map<String, String> parm) {
-
-        //创建JPushClient(极光推送的实例)
-        JPushClient jpushClient = new JPushClient(MASTER_SECRET, APP_KEY);
-        //推送的关键,构造一个payload
-        PushPayload payload = PushPayload.newBuilder()
-                .setPlatform(Platform.android())//指定android平台的用户
-                .setAudience(Audience.all())//你项目中的所有用户
-//                .setAudience(Audience.alias(parm.get("alias")))//设置别名发送,单发，点对点方式
-                //.setAudience(Audience.tag("tag1"))//设置按标签发送，相当于群发
-//                .setAudience(Audience.registrationId(parm.get("id")))//registrationId指定用户
-
-                .setNotification(Notification.android(parm.get("msg"), parm.get("title"), parm))  //发送内容
-                .setOptions(Options.newBuilder().setApnsProduction(true).setTimeToLive(7200).build())
-                // apnProduction指定开发环境 true为生产模式 false 为测试模式 (android不区分模式,ios区分模式) 不用设置也没关系
-                // TimeToLive 两个小时的缓存时间
-                .setMessage(Message.newBuilder()
-                        .setMsgContent(parm.get("msg"))
-                        .setTitle(parm.get("title"))
-                        .addExtra(EXTRA,parm.get("extra"))
-                        .build())//自定义信息
-                .build();
-
-        try {
-            PushResult pu = jpushClient.sendPush(payload);
-            System.out.println(pu.toString());
+            PushPayload pushPayload = this.buildPushObject_all_alias_alertWithTitle(alias, notification_title, msg_title, msg_content, extrasparam);
+            PushResult pushResult = jpushClient.sendPush(pushPayload);
+            if (pushResult.getResponseCode() == 200) {
+                result = 1;
+            }
+            logger.info("[极光推送]PushResult result is " + pushResult);
         } catch (APIConnectionException e) {
-            e.printStackTrace();
+            logger.error("[极光推送]Connection error. Should retry later. ", e);
         } catch (APIRequestException e) {
-            e.printStackTrace();
+            logger.error("[极光推送]Error response from JPush server. Should review and fix it. ", e);
+            logger.info("[极光推送]HTTP Status: " + e.getStatus());
+            logger.info("[极光推送]Error Code: " + e.getErrorCode());
+            logger.info("[极光推送]Error Message: " + e.getErrorMessage());
         }
+        return result;
     }
 
-    //极光推送>>ios
-    //Map<String, String> parm是我自己传过来的参数,可以自定义参数
-    public static  void jpushIOS(Map<String, String> parm) {
-
-        //创建JPushClient
-        JPushClient jpushClient = new JPushClient(MASTER_SECRET, APP_KEY);
-        PushPayload payload = PushPayload.newBuilder()
-                .setPlatform(Platform.ios())//ios平台的用户
-                .setAudience(Audience.all())//所有用户
-                //.setAudience(Audience.registrationId(parm.get("id")))//registrationId指定用户
+    /**
+     * 推送自定义消息 指定别名推送
+     *
+     * @param alias
+     * @param notification_title
+     * @param msg_title
+     * @param msg_content
+     * @param extrasparam
+     * @return
+     */
+    private PushPayload buildPushObject_all_alias_alertWithTitle(String alias, String notification_title, String msg_title, String msg_content, String extrasparam) {
+        //创建一个IosAlert对象，可指定APNs的alert、title等字段
+        //IosAlert iosAlert =  IosAlert.newBuilder().setTitleAndBody("title", "alert body").build();
+        return PushPayload.newBuilder()
+                //指定要推送的平台，all代表当前应用配置了的所有平台，也可以传android等具体平台
+                .setPlatform(Platform.all())
+                //指定推送的接收对象，all代表所有人，也可以指定已经设置成功的tag或alias或该应应用客户端调用接口获取到的registration id
+//                .setAudience(Audience.alias(alias))
+                .setAudience(Audience.all()) //所有人
+                //.setAudience(Audience.registrationId(registrationId)) //注册ID
+                //jpush的通知，android的由jpush直接下发，iOS的由apns服务器下发，Winphone的由mpns下发
                 .setNotification(Notification.newBuilder()
+                        //指定当前推送的android通知
+                        .addPlatformNotification(AndroidNotification.newBuilder()
+                                .setAlert(msg_content)
+                                .setTitle(notification_title)
+                                //此字段为透传字段，不会显示在通知栏。用户可以通过此字段来做一些定制需求，如特定的key传要指定跳转的页面（value）
+                                .addExtra("url", extrasparam)
+                                .build())
+                        //指定当前推送的iOS通知
                         .addPlatformNotification(IosNotification.newBuilder()
-                                .setAlert(parm.get("msg"))
-                                .setBadge(+1)
-                                .setSound("happy")//这里是设置提示音(更多可以去官网看看)
-                                .addExtras(parm)
+                                //传一个IosAlert对象，指定apns title、title、subtitle等
+                                .setAlert(msg_content)
+                                //直接传alert
+                                //此项是指定此推送的badge自动加1
+                                .incrBadge(1)
+                                //此字段的值default表示系统默认声音；传sound.caf表示此推送以项目里面打包的sound.caf声音来提醒，
+                                // 如果系统没有此音频则以系统默认声音提醒；此字段如果传空字符串，iOS9及以上的系统是无声音提醒，以下的系统是默认声音
+                                .setSound("sound.caf")
+                                //此字段为透传字段，不会显示在通知栏。用户可以通过此字段来做一些定制需求，如特定的key传要指定跳转的页面（value）
+                                .addExtra("url", extrasparam)
+                                //此项说明此推送是一个background推送，想了解background看：http://docs.jpush.io/client/ios_tutorials/#ios-7-background-remote-notification
+                                //取消此注释，消息推送时ios将无法在锁屏情况接收
+                                // .setContentAvailable(true)
                                 .build())
                         .build())
-                .setOptions(Options.newBuilder().setApnsProduction(false).build())
-                .setMessage(Message.newBuilder().setMsgContent(parm.get("msg")).addExtras(parm).build())//自定义信息
-                .build();
-
-        try {
-            PushResult pu = jpushClient.sendPush(payload);
-            System.out.println(pu.toString());
-        } catch (APIConnectionException e) {
-            e.printStackTrace();
-        } catch (APIRequestException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
-    //极光推送>>All所有平台
-    public static void jpushAll(Map<String, String> parm) {
-
-        //创建JPushClient
-        JPushClient jpushClient = new JPushClient(MASTER_SECRET, APP_KEY);
-        //创建option
-        PushPayload payload = PushPayload.newBuilder()
-                .setPlatform(Platform.all())  //所有平台的用户
-                .setAudience(Audience.registrationId(parm.get("id")))//registrationId指定用户
-                .setNotification(Notification.newBuilder()
-                        .addPlatformNotification(IosNotification.newBuilder() //发送ios
-                                .setAlert(parm.get("msg")) //消息体
-                                .setBadge(+1)
-                                .setSound("happy") //ios提示音
-                                .addExtras(parm) //附加参数
-                                .build())
-                        .addPlatformNotification(AndroidNotification.newBuilder() //发送android
-                                .addExtras(parm) //附加参数
-                                .setAlert(parm.get("msg")) //消息体
-                                .build())
+                //Platform指定了哪些平台就会像指定平台中符合推送条件的设备进行推送。 jpush的自定义消息，
+                // sdk默认不做任何处理，不会有通知提示。建议看文档http://docs.jpush.io/guideline/faq/的
+                // [通知与自定义消息有什么区别？]了解通知和自定义消息的区别
+                .setMessage(Message.newBuilder()
+                        .setMsgContent(msg_content)
+                        .setTitle(msg_title)
+                        //.addExtra("url", extrasparam) //释放该字段会发送两次消息，第二次消息内容是扩展字段
                         .build())
-                .setOptions(Options.newBuilder().setApnsProduction(true).build())//指定开发环境 true为生产模式 false 为测试模式 (android不区分模式,ios区分模式)
-                .setMessage(Message.newBuilder().setMsgContent(parm.get("msg")).addExtras(parm).build())//自定义信息
+                .setOptions(Options.newBuilder()
+                        //此字段的值是用来指定本推送要推送的apns环境，false表示开发，true表示生产；对android和自定义消息无意义
+                        .setApnsProduction(true)
+                        //此字段是给开发者自己给推送编号，方便推送者分辨推送记录
+                        .setSendno(1)
+                        //此字段的值是用来指定本推送的离线保存时长，如果不传此字段则默认保存一天，最多指定保留十天； 秒为单位
+                        .setTimeToLive(1 * 60 * 60 * 24)
+                        .build())
                 .build();
-        try {
-            PushResult pu = jpushClient.sendPush(payload);
-            System.out.println(pu.toString());
-        } catch (APIConnectionException e) {
-            e.printStackTrace();
-        } catch (APIRequestException e) {
-            e.printStackTrace();
-        }
+
     }
+
 }

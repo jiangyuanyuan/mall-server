@@ -114,11 +114,11 @@ public class YqV2Controller {
 //        if (user == null) {
 //            return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
 //        }
-        HashMap map =  new HashMap();
-        map.put("msg","有数据更新了");
-        map.put("title","有数据更新");
-        map.put("extra","额外的");
-        PushUtil.jpushAndroid(map);
+        PushUtil.getInstance().sendToRegistrationId("1111111",
+                "外出检测",
+                "有一条外出消息",
+                "有一条外出消息",
+                "");
 
         return ServerResponse.createBySuccess();
     }

@@ -106,7 +106,7 @@ public class YqController {
         map.put("msg","有数据更新了");
         map.put("title","有数据更新");
         map.put("extra","额外的");
-        PushUtil.jpushAndroid(map);
+//        PushUtil.jpushAndroid(map);
 
         return ServerResponse.createBySuccess();
     }

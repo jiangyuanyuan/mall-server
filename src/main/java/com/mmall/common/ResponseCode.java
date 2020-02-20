@@ -5,13 +5,13 @@ package com.mmall.common;
  */
 public enum  ResponseCode {
 
-    SUCCESS(0,"SUCCESS"),
+    SUCCESS(0,"成功"),
 
-    ERROR(1,"ERROR"),
+    ERROR(1,"失败"),
 
-    NEED_LOGIN(10,"NEED_LOGIN"),
+    NEED_LOGIN(10,"需要登录"),
 
-    ILLEGAL_ARGUMENT(2,"ILLEGAL_ARGUMENT");
+    ILLEGAL_ARGUMENT(2,"非法参数");
 
     private final int code;
 
