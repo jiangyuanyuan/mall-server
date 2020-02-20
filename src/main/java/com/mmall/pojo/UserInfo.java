@@ -3,9 +3,7 @@ package com.mmall.pojo;
 public class UserInfo {
     private String acct;
 
-    private String passwd;
-
-    private Integer localId;
+    private String localId;
 
     private String state;
 
@@ -13,13 +11,15 @@ public class UserInfo {
 
     private String parse2;
 
-    public UserInfo(String acct, String passwd, Integer localId, String state, String parse1, String parse2) {
+    private String passwd;
+
+    public UserInfo(String acct, String localId, String state, String parse1, String parse2, String passwd) {
         this.acct = acct;
-        this.passwd = passwd;
         this.localId = localId;
         this.state = state;
         this.parse1 = parse1;
         this.parse2 = parse2;
+        this.passwd = passwd;
     }
 
     public UserInfo() {
@@ -34,20 +34,12 @@ public class UserInfo {
         this.acct = acct == null ? null : acct.trim();
     }
 
-    public String getPasswd() {
-        return passwd;
-    }
-
-    public void setPasswd(String passwd) {
-        this.passwd = passwd == null ? null : passwd.trim();
-    }
-
-    public Integer getLocalId() {
+    public String getLocalId() {
         return localId;
     }
 
-    public void setLocalId(Integer localId) {
-        this.localId = localId;
+    public void setLocalId(String localId) {
+        this.localId = localId == null ? null : localId.trim();
     }
 
     public String getState() {
@@ -74,4 +66,11 @@ public class UserInfo {
         this.parse2 = parse2 == null ? null : parse2.trim();
     }
 
+    public String getPasswd() {
+        return passwd;
+    }
+
+    public void setPasswd(String passwd) {
+        this.passwd = passwd == null ? null : passwd.trim();
+    }
 }

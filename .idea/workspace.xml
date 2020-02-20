@@ -6,29 +6,20 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2ca584b-5110-4b40-9e5b-6774accf9a17" name="Default" comment="第一版">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/YqV2Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/AreaInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/ComInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/ProvInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/SensorinfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/StreetInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/AreaInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/ComInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/LocalIdDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/ProvInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/Sensorinfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/StreetInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/vo/BlocalVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/AreaInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/ComInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/ProvInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/SensorinfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/StreetInfoMapper.xml" afterDir="false" />
+    <list default="true" id="c2ca584b-5110-4b40-9e5b-6774accf9a17" name="Default" comment="第2版">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/YqV2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/YqV2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/dao/PeopleOutInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/PeopleOutInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/UserInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/service/IYqService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/service/IYqService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/YqServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/YqServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/vo/SearchDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/vo/SearchDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/vo/SingleStatisticsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/vo/SingleStatisticsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/datasource.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/PeopleOutInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/PeopleOutInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/UserInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/datasource.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generatorConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/mall.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/mall.war" afterDir="false" />
@@ -544,6 +535,27 @@
       <workItem from="1581940504405" duration="1117000" />
       <workItem from="1581941929513" duration="745000" />
       <workItem from="1581946062028" duration="1035000" />
+      <workItem from="1581947876923" duration="1806000" />
+      <workItem from="1581949717733" duration="1837000" />
+      <workItem from="1581952129326" duration="1290000" />
+      <workItem from="1581953724908" duration="257000" />
+      <workItem from="1581954241083" duration="1716000" />
+      <workItem from="1581990039403" duration="630000" />
+      <workItem from="1581994129244" duration="1606000" />
+      <workItem from="1581996126900" duration="1752000" />
+      <workItem from="1581998589396" duration="1719000" />
+      <workItem from="1582009122321" duration="1516000" />
+      <workItem from="1582012044036" duration="739000" />
+      <workItem from="1582035057633" duration="1135000" />
+      <workItem from="1582038346963" duration="1354000" />
+      <workItem from="1582083699930" duration="1685000" />
+      <workItem from="1582086832526" duration="1654000" />
+      <workItem from="1582088646126" duration="564000" />
+      <workItem from="1582090619534" duration="1389000" />
+      <workItem from="1582094411361" duration="1715000" />
+      <workItem from="1582139851725" duration="684000" />
+      <workItem from="1582153395041" duration="1623000" />
+      <workItem from="1582156410262" duration="520000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1512546794045</created>
@@ -752,7 +764,8 @@
     <MESSAGE value="没啥东西" />
     <MESSAGE value="yq" />
     <MESSAGE value="第一版" />
-    <option name="LAST_COMMIT_MESSAGE" value="第一版" />
+    <MESSAGE value="第2版" />
+    <option name="LAST_COMMIT_MESSAGE" value="第2版" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

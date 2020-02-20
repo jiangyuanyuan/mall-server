@@ -4,15 +4,15 @@
   <resultMap id="BaseResultMap" type="com.mmall.pojo.UserInfo" >
     <constructor >
       <idArg column="acct" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="passwd" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="local_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="local_id" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="state" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="parse1" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="parse2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="passwd" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    acct, passwd, local_id, state, parse1, parse2
+    acct, local_id, state, parse1, parse2, passwd
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -25,11 +25,11 @@
     where acct = #{acct,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.mmall.pojo.UserInfo" >
-    insert into acct_info_table (acct, passwd, local_id, 
-      state, parse1, parse2
+    insert into acct_info_table (acct, local_id, state, 
+      parse1, parse2, passwd
       )
-    values (#{acct,jdbcType=VARCHAR}, #{passwd,jdbcType=VARCHAR}, #{localId,jdbcType=INTEGER}, 
-      #{state,jdbcType=VARCHAR}, #{parse1,jdbcType=VARCHAR}, #{parse2,jdbcType=VARCHAR}
+    values (#{acct,jdbcType=VARCHAR}, #{localId,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{parse1,jdbcType=VARCHAR}, #{parse2,jdbcType=VARCHAR}, #{passwd,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.mmall.pojo.UserInfo" >
@@ -37,9 +37,6 @@
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="acct != null" >
         acct,
-      </if>
-      <if test="passwd != null" >
-        passwd,
       </if>
       <if test="localId != null" >
         local_id,
@@ -53,16 +50,16 @@
       <if test="parse2 != null" >
         parse2,
       </if>
+      <if test="passwd != null" >
+        passwd,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="acct != null" >
         #{acct,jdbcType=VARCHAR},
       </if>
-      <if test="passwd != null" >
-        #{passwd,jdbcType=VARCHAR},
-      </if>
       <if test="localId != null" >
-        #{localId,jdbcType=INTEGER},
+        #{localId,jdbcType=VARCHAR},
       </if>
       <if test="state != null" >
         #{state,jdbcType=VARCHAR},
@@ -73,16 +70,16 @@
       <if test="parse2 != null" >
         #{parse2,jdbcType=VARCHAR},
       </if>
+      <if test="passwd != null" >
+        #{passwd,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.UserInfo" >
     update acct_info_table
     <set >
-      <if test="passwd != null" >
-        passwd = #{passwd,jdbcType=VARCHAR},
-      </if>
       <if test="localId != null" >
-        local_id = #{localId,jdbcType=INTEGER},
+        local_id = #{localId,jdbcType=VARCHAR},
       </if>
       <if test="state != null" >
         state = #{state,jdbcType=VARCHAR},
@@ -93,43 +90,38 @@
       <if test="parse2 != null" >
         parse2 = #{parse2,jdbcType=VARCHAR},
       </if>
+      <if test="passwd != null" >
+        passwd = #{passwd,jdbcType=VARCHAR},
+      </if>
     </set>
     where acct = #{acct,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mmall.pojo.UserInfo" >
     update acct_info_table
-    set passwd = #{passwd,jdbcType=VARCHAR},
-      local_id = #{localId,jdbcType=INTEGER},
+    set local_id = #{localId,jdbcType=VARCHAR},
       state = #{state,jdbcType=VARCHAR},
       parse1 = #{parse1,jdbcType=VARCHAR},
-      parse2 = #{parse2,jdbcType=VARCHAR}
+      parse2 = #{parse2,jdbcType=VARCHAR},
+      passwd = #{passwd,jdbcType=VARCHAR}
     where acct = #{acct,jdbcType=VARCHAR}
   </update>
 
-
-
-  <select id="checkUserName" resultType="int" parameterType="string" >
+  <select id="checkUserName" parameterType="string" resultType="int">
     select count(1) from acct_info_table
     where acct = #{acct}
   </select>
 
-  <select id="selectLogin" resultType="com.mmall.pojo.UserDto" parameterType="map">
+  <select id="selectLogin" parameterType="map" resultType="com.mmall.pojo.UserDto">
 
 
     SELECT
-    a.acct, a.passwd, a.local_id as localId, a.state, a.parse1, a.parse2,
-    l.local_name as localName,l.attr as localAttr,
-    l.phone as localPhone,l.parse1 as localParse1,
-    l.parse2 as localParse2,l.parse3 as localParse3
-    FROM acct_info_table a,local_info_table l
+    a.acct, a.passwd, a.local_id as localId, a.state, a.parse1, a.parse2
+    FROM acct_info_table a
     WHERE a.acct = #{acct}
     AND a.passwd =#{passwd}
-    AND a.local_id=l.local_id
+
 
 
 
   </select>
-
-
-
 </mapper>

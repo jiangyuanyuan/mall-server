@@ -24,9 +24,30 @@ public interface PeopleOutInfoMapper {
     List<SingleStatisticsVo> getListByTime(@Param("timeNumber") Integer timeNumber,@Param("localId") Integer localId);
 
 
+    List<SingleStatisticsVo> getListByTimeProv(@Param("timeNumber") Integer timeNumber,@Param("localId") Integer localId);
+    List<SingleStatisticsVo> getListByTimeArea(@Param("timeNumber") Integer timeNumber,@Param("localId") Integer localId);
+    List<SingleStatisticsVo> getListByTimeStreet(@Param("timeNumber") Integer timeNumber,@Param("localId") Integer localId);
+    List<SingleStatisticsVo> getListByTimeCom(@Param("timeNumber") Integer timeNumber,@Param("localId") Integer localId);
+    List<SingleStatisticsVo> getListByTimeSensor(@Param("timeNumber") Integer timeNumber,@Param("localId") Integer localId);
+
+
+
+
     List<PeopleOutInfoVo> selectList(@Param("localId") Integer localId);
 
+    List<PeopleOutInfoVo> selectListProv(@Param("localId") Integer localId);
+    List<PeopleOutInfoVo> selectListArea(@Param("localId") Integer localId);
+    List<PeopleOutInfoVo> selectListStreet(@Param("localId") Integer localId);
+    List<PeopleOutInfoVo> selectListCom(@Param("localId") Integer localId);
+    List<PeopleOutInfoVo> selectListSensor(@Param("localId") Integer localId);
+
     List<PeopleOutInfoVo> search(@Param("startTime") Date startTime,@Param("endTime") Date endTime,@Param("localId") Integer localId);
+
+    List<PeopleOutInfoVo> searchProv(@Param("startTime") Date startTime,@Param("endTime") Date endTime,@Param("localId") Integer localId);
+    List<PeopleOutInfoVo> searchArea(@Param("startTime") Date startTime,@Param("endTime") Date endTime,@Param("localId") Integer localId);
+    List<PeopleOutInfoVo> searchStreet(@Param("startTime") Date startTime,@Param("endTime") Date endTime,@Param("localId") Integer localId);
+    List<PeopleOutInfoVo> searchCom(@Param("startTime") Date startTime,@Param("endTime") Date endTime,@Param("localId") Integer localId);
+    List<PeopleOutInfoVo> searchSensor(@Param("startTime") Date startTime,@Param("endTime") Date endTime,@Param("localId") Integer localId);
 
 
 }

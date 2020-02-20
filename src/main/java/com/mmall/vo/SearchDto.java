@@ -1,7 +1,5 @@
 package com.mmall.vo;
 
-import java.util.Date;
-
 /**
  * Created by jiangyuanyuan on 15/09/2019.
  */
@@ -12,6 +10,10 @@ public class SearchDto {
 
     private String startTime;
     private String endTime;
+
+    private Integer id;
+    private Integer type;
+
 
 
 
@@ -54,5 +56,22 @@ public class SearchDto {
 
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 }

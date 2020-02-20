@@ -184,37 +184,244 @@
     COUNT( 1 ) AS sum
     FROM
     people_out_info_table
-    WHERE  out_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} DAY )
-    and (sub_provice = #{localId,jdbcType=INTEGER} or sub_area = #{localId,jdbcType=INTEGER}  or sub_street = #{localId,jdbcType=INTEGER} or sub_com = #{localId,jdbcType=INTEGER})
+    WHERE  (out_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} DAY ))
+    and (sub_provice = #{localId,jdbcType=INTEGER} or sub_area = #{localId,jdbcType=INTEGER}  or sub_street = #{localId,jdbcType=INTEGER} or sub_com = #{localId,jdbcType=INTEGER} or sensorid = #{localId,jdbcType=INTEGER})
     GROUP BY
     DATE_FORMAT( out_time, '%Y%m%d' )
   </select>
+
+
+
+  <select id="getListByTimeProv" resultType="com.mmall.vo.SingleStatisticsVo" parameterType="java.lang.Integer">
+    SELECT
+    DATE_FORMAT( out_time, '%Y%m%d' ) AS day,
+    COUNT( 1 ) AS sum
+    FROM
+    people_out_info_table
+    WHERE  (out_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} DAY ))
+    and (sub_provice = #{localId,jdbcType=INTEGER})
+    GROUP BY
+    DATE_FORMAT( out_time, '%Y%m%d' )
+  </select>
+
+  <select id="getListByTimeArea" resultType="com.mmall.vo.SingleStatisticsVo" parameterType="java.lang.Integer">
+    SELECT
+    DATE_FORMAT( out_time, '%Y%m%d' ) AS day,
+    COUNT( 1 ) AS sum
+    FROM
+    people_out_info_table
+    WHERE  (out_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} DAY ))
+    and (sub_area = #{localId,jdbcType=INTEGER})
+    GROUP BY
+    DATE_FORMAT( out_time, '%Y%m%d' )
+  </select>
+
+  <select id="getListByTimeStreet" resultType="com.mmall.vo.SingleStatisticsVo" parameterType="java.lang.Integer">
+    SELECT
+    DATE_FORMAT( out_time, '%Y%m%d' ) AS day,
+    COUNT( 1 ) AS sum
+    FROM
+    people_out_info_table
+    WHERE  (out_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} DAY ))
+    and (sub_street = #{localId,jdbcType=INTEGER})
+    GROUP BY
+    DATE_FORMAT( out_time, '%Y%m%d' )
+  </select>
+
+  <select id="getListByTimeCom" resultType="com.mmall.vo.SingleStatisticsVo" parameterType="java.lang.Integer">
+    SELECT
+    DATE_FORMAT( out_time, '%Y%m%d' ) AS day,
+    COUNT( 1 ) AS sum
+    FROM
+    people_out_info_table
+    WHERE  (out_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} DAY ))
+    and (sub_com = #{localId,jdbcType=INTEGER})
+    GROUP BY
+    DATE_FORMAT( out_time, '%Y%m%d' )
+  </select>
+
+  <select id="getListByTimeSensor" resultType="com.mmall.vo.SingleStatisticsVo" parameterType="java.lang.Integer">
+    SELECT
+    DATE_FORMAT( out_time, '%Y%m%d' ) AS day,
+    COUNT( 1 ) AS sum
+    FROM
+    people_out_info_table
+    WHERE  (out_time >= date_sub(now(), interval #{timeNumber,jdbcType=INTEGER} DAY ))
+    and (sensorid = #{localId,jdbcType=INTEGER})
+    GROUP BY
+    DATE_FORMAT( out_time, '%Y%m%d' )
+  </select>
+
+
+
 
   <select id="selectList" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
     select
     o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
     o.parse1, o.parse2, o.parse3,
     p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2,
-    l.local_id as localId, l.local_name as localName, l.attr as localAttr, l.phone as localPhone
-    from people_out_info_table o,pic_info_table p,local_info_table l
+    l.sensorid as localId, l.bl_name as localName
+    from people_out_info_table o,pic_info_table p,sensor_info_table l
     where o.picid=p.picid
-    AND l.local_id = #{localId,jdbcType=INTEGER}
-    and (sub_provice = #{localId,jdbcType=INTEGER} or sub_area = #{localId,jdbcType=INTEGER}  or sub_street = #{localId,jdbcType=INTEGER} or sub_com = #{localId,jdbcType=INTEGER})
+    AND l.sensorid = o.sensorid
+    and (o.sub_provice = #{localId,jdbcType=INTEGER} or o.sub_area = #{localId,jdbcType=INTEGER}  or o.sub_street = #{localId,jdbcType=INTEGER} or o.sub_com = #{localId,jdbcType=INTEGER} or o.sensorid = #{localId,jdbcType=INTEGER})
 
   </select>
+
+
+  <select id="selectListProv" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
+    select
+    o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
+    o.parse1, o.parse2, o.parse3,
+    p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2,
+    l.sensorid as localId, l.bl_name as localName
+    from people_out_info_table o,pic_info_table p,sensor_info_table l
+    where o.picid=p.picid
+    AND l.sensorid = o.sensorid
+    and (o.sub_provice = #{localId,jdbcType=INTEGER})
+
+  </select>
+
+
+  <select id="selectListArea" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
+    select
+    o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
+    o.parse1, o.parse2, o.parse3,
+    p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2,
+    l.sensorid as localId, l.bl_name as localName
+    from people_out_info_table o,pic_info_table p,sensor_info_table l
+    where o.picid=p.picid
+    AND l.sensorid = o.sensorid
+    and (o.sub_area = #{localId,jdbcType=INTEGER})
+
+  </select>
+
+
+  <select id="selectListStreet" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
+    select
+    o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
+    o.parse1, o.parse2, o.parse3,
+    p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2,
+    l.sensorid as localId, l.bl_name as localName
+    from people_out_info_table o,pic_info_table p,sensor_info_table l
+    where o.picid=p.picid
+    AND l.sensorid = o.sensorid
+    and ( o.sub_street = #{localId,jdbcType=INTEGER} )
+
+  </select>
+
+
+  <select id="selectListCom" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
+    select
+    o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
+    o.parse1, o.parse2, o.parse3,
+    p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2,
+    l.sensorid as localId, l.bl_name as localName
+    from people_out_info_table o,pic_info_table p,sensor_info_table l
+    where o.picid=p.picid
+    AND l.sensorid = o.sensorid
+    and (o.sub_com = #{localId,jdbcType=INTEGER})
+
+  </select>
+
+  <select id="selectListSensor" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
+    select
+    o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
+    o.parse1, o.parse2, o.parse3,
+    p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2,
+    l.sensorid as localId, l.bl_name as localName
+    from people_out_info_table o,pic_info_table p,sensor_info_table l
+    where o.picid=p.picid
+    AND l.sensorid = o.sensorid
+   and ( o.sensorid = #{localId,jdbcType=INTEGER})
+
+  </select>
+
+
+
+
 
   <select id="search" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
     select
     o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
     o.parse1, o.parse2, o.parse3,
     p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2,
-    l.local_id as localId, l.local_name as localName, l.attr as localAttr, l.phone as localPhone
-    from people_out_info_table o,pic_info_table p,local_info_table l
+    l.sensorid as localId, l.bl_name as localName
+    from people_out_info_table o,pic_info_table p,sensor_info_table l
     where o.picid=p.picid
-    AND l.local_id = #{localId,jdbcType=INTEGER}
-    and (sub_provice = #{localId,jdbcType=INTEGER} or sub_area = #{localId,jdbcType=INTEGER}  or sub_street = #{localId,jdbcType=INTEGER} or sub_com = #{localId,jdbcType=INTEGER})
-    AND (o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP});
+    AND l.sensorid = o.sensorid
+    and (o.sub_provice = #{localId,jdbcType=INTEGER} or o.sub_area = #{localId,jdbcType=INTEGER}  or o.sub_street = #{localId,jdbcType=INTEGER} or o.sub_com = #{localId,jdbcType=INTEGER} or o.sensorid = #{localId,jdbcType=INTEGER})
+  AND (o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP})
   </select>
+
+
+  <select id="searchProv" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
+    select
+    o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
+    o.parse1, o.parse2, o.parse3,
+    p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2,
+    l.sensorid as localId, l.bl_name as localName
+    from people_out_info_table o,pic_info_table p,sensor_info_table l
+    where o.picid=p.picid
+    AND l.sensorid = o.sensorid
+    and (o.sub_provice = #{localId,jdbcType=INTEGER})
+  AND (o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP})
+  </select>
+
+  <select id="searchArea" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
+    select
+    o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
+    o.parse1, o.parse2, o.parse3,
+    p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2,
+    l.sensorid as localId, l.bl_name as localName
+    from people_out_info_table o,pic_info_table p,sensor_info_table l
+    where o.picid=p.picid
+    AND l.sensorid = o.sensorid
+    and (o.sub_area = #{localId,jdbcType=INTEGER})
+ AND (o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP})
+  </select>
+
+
+  <select id="searchStreet" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
+    select
+    o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
+    o.parse1, o.parse2, o.parse3,
+    p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2,
+    l.sensorid as localId, l.bl_name as localName
+    from people_out_info_table o,pic_info_table p,sensor_info_table l
+    where o.picid=p.picid
+    AND l.sensorid = o.sensorid
+    and ( o.sub_street = #{localId,jdbcType=INTEGER})
+ AND (o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP})
+  </select>
+
+
+  <select id="searchCom" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
+    select
+    o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
+    o.parse1, o.parse2, o.parse3,
+    p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2,
+    l.sensorid as localId, l.bl_name as localName
+    from people_out_info_table o,pic_info_table p,sensor_info_table l
+    where o.picid=p.picid
+    AND l.sensorid = o.sensorid
+    and ( o.sub_com = #{localId,jdbcType=INTEGER} )
+    AND (o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP})
+  </select>
+
+  <select id="searchSensor" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
+    select
+    o.id, o.out_time as outTime, o.back_time as backTime, o.sub_com as subCom, o.sub_street as subStreet, o.sub_area as subArea, o.sub_provice as subProvice, o.picid, o.sensorid,
+    o.parse1, o.parse2, o.parse3,
+    p.pic_path_out as picPathOut,p.pic_path_in as picPathIn,p.parse1 as picParse1,p.parse2 as picParse2,
+    l.sensorid as localId, l.bl_name as localName
+    from people_out_info_table o,pic_info_table p,sensor_info_table l
+    where o.picid=p.picid
+    AND l.sensorid = o.sensorid
+    and (o.sensorid = #{localId,jdbcType=INTEGER})
+    AND o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+  </select>
+
 
 
 </mapper>

@@ -5,7 +5,7 @@ public class UserDto {
 
     private String passwd;
 
-    private Integer localId;
+    private String localId;
 
     private String state;
 
@@ -29,10 +29,18 @@ public class UserDto {
     private String localParse3;
 
 
+    private Integer localCurrentlyId;
+
+    private Integer localUpId;
+
+    private Integer type;
 
 
 
-    public UserDto(String acct, String passwd, Integer localId, String state, String parse1, String parse2,
+
+
+
+    public UserDto(String acct, String passwd, String localId, String state, String parse1, String parse2,
                    String localName, String localAttr, String localPhone,
                    String localParse1, String localParse2, String localParse3) {
         this.acct = acct;
@@ -70,11 +78,11 @@ public class UserDto {
         this.passwd = passwd == null ? null : passwd.trim();
     }
 
-    public Integer getLocalId() {
+    public String getLocalId() {
         return localId;
     }
 
-    public void setLocalId(Integer localId) {
+    public void setLocalId(String localId) {
         this.localId = localId;
     }
 
@@ -150,5 +158,29 @@ public class UserDto {
 
     public void setLocalParse3(String localParse3) {
         this.localParse3 = localParse3;
+    }
+
+    public Integer getLocalCurrentlyId() {
+        return localCurrentlyId;
+    }
+
+    public void setLocalCurrentlyId(Integer localCurrentlyId) {
+        this.localCurrentlyId = localCurrentlyId;
+    }
+
+    public Integer getLocalUpId() {
+        return localUpId;
+    }
+
+    public void setLocalUpId(Integer localUpId) {
+        this.localUpId = localUpId;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 }

@@ -82,7 +82,7 @@ public class YqV2Controller {
         }
 
 
-        return iYqService.getListByTime(singleStatisticsDto.getTimeNumber(), singleStatisticsDto.getSortType(),localId);
+        return iYqService.getListByTimeV2(singleStatisticsDto.getTimeNumber(), singleStatisticsDto.getSortType(),singleStatisticsDto.getId(),singleStatisticsDto.getType());
 
     }
 
@@ -96,10 +96,12 @@ public class YqV2Controller {
         if (localId == null) {
             return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
+
+
         if (alarmMsgDto.getStartTime()==null||alarmMsgDto.getStartTime()==""||alarmMsgDto.getEndTime()==null||alarmMsgDto.getEndTime()==""){
-            return iYqService.getList(alarmMsgDto.getSortType(), alarmMsgDto.getPageNum(), alarmMsgDto.getPageSize(),localId);
+            return iYqService.getListV2(alarmMsgDto.getSortType(), alarmMsgDto.getPageNum(), alarmMsgDto.getPageSize(),alarmMsgDto.getId(),alarmMsgDto.getType());
         }else {
-            return iYqService.search(alarmMsgDto.getSortType(), alarmMsgDto.getPageNum(), alarmMsgDto.getPageSize(), alarmMsgDto.getStartTime(), alarmMsgDto.getEndTime(),localId);
+            return iYqService.searchV2(alarmMsgDto.getSortType(), alarmMsgDto.getPageNum(), alarmMsgDto.getPageSize(), alarmMsgDto.getStartTime(), alarmMsgDto.getEndTime(),alarmMsgDto.getId(),alarmMsgDto.getType());
         }
 
     }
