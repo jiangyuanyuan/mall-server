@@ -265,7 +265,7 @@
     where o.picid=p.picid
     AND l.sensorid = o.sensorid
     and (o.sub_provice = #{localId,jdbcType=INTEGER} or o.sub_area = #{localId,jdbcType=INTEGER}  or o.sub_street = #{localId,jdbcType=INTEGER} or o.sub_com = #{localId,jdbcType=INTEGER} or o.sensorid = #{localId,jdbcType=INTEGER})
-
+ORDER BY o.out_time DESC
   </select>
 
 
@@ -279,7 +279,7 @@
     where o.picid=p.picid
     AND l.sensorid = o.sensorid
     and (o.sub_provice = #{localId,jdbcType=INTEGER})
-
+ORDER BY o.out_time DESC
   </select>
 
 
@@ -293,7 +293,7 @@
     where o.picid=p.picid
     AND l.sensorid = o.sensorid
     and (o.sub_area = #{localId,jdbcType=INTEGER})
-
+ORDER BY o.out_time DESC
   </select>
 
 
@@ -307,7 +307,7 @@
     where o.picid=p.picid
     AND l.sensorid = o.sensorid
     and ( o.sub_street = #{localId,jdbcType=INTEGER} )
-
+ORDER BY o.out_time DESC
   </select>
 
 
@@ -321,7 +321,7 @@
     where o.picid=p.picid
     AND l.sensorid = o.sensorid
     and (o.sub_com = #{localId,jdbcType=INTEGER})
-
+ORDER BY o.out_time DESC
   </select>
 
   <select id="selectListSensor" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
@@ -334,7 +334,7 @@
     where o.picid=p.picid
     AND l.sensorid = o.sensorid
    and ( o.sensorid = #{localId,jdbcType=INTEGER})
-
+ORDER BY o.out_time DESC
   </select>
 
 
@@ -352,6 +352,7 @@
     AND l.sensorid = o.sensorid
     and (o.sub_provice = #{localId,jdbcType=INTEGER} or o.sub_area = #{localId,jdbcType=INTEGER}  or o.sub_street = #{localId,jdbcType=INTEGER} or o.sub_com = #{localId,jdbcType=INTEGER} or o.sensorid = #{localId,jdbcType=INTEGER})
   AND (o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP})
+  ORDER BY o.out_time DESC
   </select>
 
 
@@ -366,6 +367,7 @@
     AND l.sensorid = o.sensorid
     and (o.sub_provice = #{localId,jdbcType=INTEGER})
   AND (o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP})
+  ORDER BY o.out_time DESC
   </select>
 
   <select id="searchArea" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
@@ -379,6 +381,7 @@
     AND l.sensorid = o.sensorid
     and (o.sub_area = #{localId,jdbcType=INTEGER})
  AND (o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP})
+ ORDER BY o.out_time DESC
   </select>
 
 
@@ -393,6 +396,7 @@
     AND l.sensorid = o.sensorid
     and ( o.sub_street = #{localId,jdbcType=INTEGER})
  AND (o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP})
+ ORDER BY o.out_time DESC
   </select>
 
 
@@ -407,6 +411,7 @@
     AND l.sensorid = o.sensorid
     and ( o.sub_com = #{localId,jdbcType=INTEGER} )
     AND (o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP})
+    ORDER BY o.out_time DESC
   </select>
 
   <select id="searchSensor" resultType="com.mmall.vo.PeopleOutInfoVo" parameterType="map" flushCache="true">
@@ -420,6 +425,7 @@
     AND l.sensorid = o.sensorid
     and (o.sensorid = #{localId,jdbcType=INTEGER})
     AND o.out_time between #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    ORDER BY o.out_time DESC
   </select>
 
 
