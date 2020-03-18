@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mmall.common.Const;
 import com.mmall.common.ServerResponse;
+import com.mmall.common.TokenCache;
 import com.mmall.dao.*;
 import com.mmall.pojo.*;
 import com.mmall.service.IYqService;
@@ -22,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Service("iYqService")
 public class YqServiceImpl implements IYqService {
@@ -144,61 +146,70 @@ public class YqServiceImpl implements IYqService {
 //                List<ProvInfo> provInfos = provInfoMapper.selectById(Integer.parseInt(locals[0]));
 //                break;
             case 1:
-                List<AreaInfo> areaInfos = areaInfoMapper.selectById(id);
+                List<BlocalVo> areaInfos = areaInfoMapper.selectById(id);
                 if (areaInfos != null && areaInfos.size() > 0) {
-                    for (AreaInfo areaInfo : areaInfos) {
-                        BlocalVo blocalVo = new BlocalVo();
-                        blocalVo.setId(areaInfo.getAreaid());
-                        blocalVo.setName(areaInfo.getAreaname());
-                        blocalVo.setBlId(areaInfo.getBlProvid());
-                        blocalVo.setParse(areaInfo.getParse());
-                        blocalVo.setType(2);
-                        blocalVos.add(blocalVo);
+                    for (BlocalVo areaInfo : areaInfos) {
+//                        BlocalVo blocalVo = new BlocalVo();
+//                        blocalVo.setId(areaInfo.getAreaid());
+//                        blocalVo.setName(areaInfo.getAreaname());
+//                        blocalVo.setBlId(areaInfo.getBlProvid());
+//                        blocalVo.setParse(areaInfo.getParse());
+                        areaInfo.setType(2);
+                        blocalVos.add(areaInfo);
                     }
+//                    blocalVos.addAll(areaInfos);
                 }
                 break;
             case 2:
-                List<StreetInfo> streetInfos = streetInfoMapper.selectById(id);
+                List<BlocalVo> streetInfos = streetInfoMapper.selectById(id);
                 if (streetInfos != null && streetInfos.size() > 0) {
-                    for (StreetInfo streetInfo : streetInfos) {
-                        BlocalVo blocalVo = new BlocalVo();
-                        blocalVo.setId(streetInfo.getStreetid());
-                        blocalVo.setName(streetInfo.getStreetname());
-                        blocalVo.setBlId(streetInfo.getBlAreaid());
-                        blocalVo.setParse(streetInfo.getParse());
-                        blocalVo.setType(3);
-                        blocalVos.add(blocalVo);
+                    for (BlocalVo streetInfo : streetInfos) {
+//                        BlocalVo blocalVo = new BlocalVo();
+//                        blocalVo.setId(streetInfo.getStreetid());
+//                        blocalVo.setName(streetInfo.getStreetname());
+//                        blocalVo.setBlId(streetInfo.getBlAreaid());
+//                        blocalVo.setParse(streetInfo.getParse());
+                        streetInfo.setType(3);
+                        blocalVos.add(streetInfo);
                     }
+//                    blocalVos.addAll(streetInfos);
+
                 }
 
                 break;
             case 3:
-                List<ComInfo> comInfos = comInfoMapper.selectById(id);
+                List<BlocalVo> comInfos = comInfoMapper.selectById(id);
                 if (comInfos != null && comInfos.size() > 0) {
-                    for (ComInfo comInfo : comInfos) {
-                        BlocalVo blocalVo = new BlocalVo();
-                        blocalVo.setId(comInfo.getComid());
-                        blocalVo.setName(comInfo.getComname());
-                        blocalVo.setBlId(comInfo.getBlStreetid());
-                        blocalVo.setParse(comInfo.getParse());
-                        blocalVo.setType(4);
-                        blocalVos.add(blocalVo);
+                    for (BlocalVo comInfo : comInfos) {
+//                        BlocalVo blocalVo = new BlocalVo();
+//                        blocalVo.setId(comInfo.getComid());
+//                        blocalVo.setName(comInfo.getComname());
+//                        blocalVo.setBlId(comInfo.getBlStreetid());
+//                        blocalVo.setParse(comInfo.getParse());
+                        comInfo.setType(4);
+                        blocalVos.add(comInfo);
                     }
+//
+//                    blocalVos.addAll(comInfos);
+
                 }
 
                 break;
             case 4:
-                List<Sensorinfo> sensorinfos = sensorinfoMapper.selectById(id);
+                List<BlocalVo> sensorinfos = sensorinfoMapper.selectById(id);
                 if (sensorinfos != null && sensorinfos.size() > 0) {
-                    for (Sensorinfo sensorinfo : sensorinfos) {
-                        BlocalVo blocalVo = new BlocalVo();
-                        blocalVo.setId(sensorinfo.getSensorid());
-                        blocalVo.setName(sensorinfo.getBlName());
-                        blocalVo.setBlId(sensorinfo.getBlComid());
-                        blocalVo.setParse(sensorinfo.getParse());
-                        blocalVo.setType(5);
-                        blocalVos.add(blocalVo);
+                    for (BlocalVo sensorinfo : sensorinfos) {
+//                        BlocalVo blocalVo = new BlocalVo();
+//                        blocalVo.setId(sensorinfo.getSensorid());
+//                        blocalVo.setName(sensorinfo.getBlName());
+//                        blocalVo.setBlId(sensorinfo.getBlComid());
+//                        blocalVo.setParse(sensorinfo.getParse());
+                        sensorinfo.setType(5);
+                        blocalVos.add(sensorinfo);
                     }
+//
+//                    blocalVos.addAll(sensorinfos);
+
                 }
                 break;
             default:
@@ -403,7 +414,7 @@ public class YqServiceImpl implements IYqService {
      */
 
     @Override
-    public ServerResponse<String> resetPassword(String newPassword, String oldPassword, String acct) {
+    public ServerResponse<String> resetPassword(String newPassword, String oldPassword, String acct,String token) {
         ServerResponse serverResponse = checkValid(acct, Const.CHECK_USERNAME);
         if (serverResponse.isSuccess()){
             return ServerResponse.createByErrorMessage("用户不存在");
@@ -422,8 +433,19 @@ public class YqServiceImpl implements IYqService {
         userInfo.setPasswd(MD5Util.MD5EncodeUtf8(newPassword));
         int resultCount = userMapper.updateByPrimaryKeySelective(userInfo);
         if (resultCount>0){
+            String localId = TokenCache.getKey(TokenCache.TOKEN_PREFIX+token);
+
+            String newtoken = UUID.randomUUID().toString();
+            TokenCache.setKey(TokenCache.TOKEN_PREFIX+newtoken,localId+"");
+            TokenCache.setKey(TokenCache.TOKEN_PREFIX+newtoken+"USERNAME",acct+"");
+
+
+            TokenCache.setKey(TokenCache.TOKEN_PREFIX+token,"");
+            TokenCache.setKey(TokenCache.TOKEN_PREFIX+token+"USERNAME","");
+
             return ServerResponse.createBySuccessMessage("修改密码成功");
         }
+
         return ServerResponse.createByErrorMessage("密码修改失败");
     }
 

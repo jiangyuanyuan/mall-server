@@ -13,6 +13,7 @@ import com.mmall.util.MD5Util;
 import com.mmall.util.PushUtil;
 import com.mmall.vo.SearchDto;
 import com.mmall.vo.SingleStatisticsDto;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -53,10 +54,11 @@ public class YqV2Controller {
     public ServerResponse<String> resetPassword(@RequestBody ResetDto resetDto, @RequestHeader("Authorization") String token){
         String localId = TokenCache.getKey(TokenCache.TOKEN_PREFIX+token);
         String acct = TokenCache.getKey(TokenCache.TOKEN_PREFIX+token+"USERNAME");
-        if (localId == null||acct==null) {
+        if (StringUtils.isBlank(localId)||StringUtils.isBlank(acct)) {
             return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
-        return iYqService.resetPassword(resetDto.getNewPassword(),resetDto.getOldPassword(),acct);
+
+        return  iYqService.resetPassword(resetDto.getNewPassword(),resetDto.getOldPassword(),acct,token);
     }
 
 
@@ -64,7 +66,7 @@ public class YqV2Controller {
     @ResponseBody
     public ServerResponse getBelowLocals(@RequestBody LocalIdDto localIdDto,@RequestHeader("Authorization") String token) {
         String localId = TokenCache.getKey(TokenCache.TOKEN_PREFIX+token);
-        if (localId == null) {
+        if (StringUtils.isBlank(localId)) {
             return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
         //判断用户权限
@@ -78,7 +80,7 @@ public class YqV2Controller {
     @ResponseBody
     public ServerResponse<UserVo> getUserBelowLocals(@RequestHeader("Authorization") String token) {
         String localId = TokenCache.getKey(TokenCache.TOKEN_PREFIX+token);
-        if (localId == null) {
+        if (StringUtils.isBlank(localId)) {
             return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
         ServerResponse<UserVo> response = iYqService.getUserBelowLocals(localId);
@@ -95,7 +97,7 @@ public class YqV2Controller {
         //统计该用户7天内所属区域的记录条数   每一天的
         String localId = TokenCache.getKey(TokenCache.TOKEN_PREFIX+token);
 //        UserInfo user = (UserInfo) session.getAttribute(Const.CURRENT_USER);
-        if (localId == null) {
+        if (StringUtils.isBlank(localId)) {
             return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
 
@@ -111,7 +113,7 @@ public class YqV2Controller {
     public ServerResponse getList(@RequestBody SearchDto alarmMsgDto, @RequestHeader("Authorization") String token) {
         String localId = TokenCache.getKey(TokenCache.TOKEN_PREFIX+token);
 //        UserInfo user = (UserInfo) session.getAttribute(Const.CURRENT_USER);
-        if (localId == null) {
+        if (StringUtils.isBlank(localId)) {
             return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
 

@@ -1,6 +1,7 @@
 package com.mmall.dao;
 
 import com.mmall.pojo.StreetInfo;
+import com.mmall.vo.BlocalVo;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface StreetInfoMapper {
 
     StreetInfo selectByPrimaryKey(Integer streetid);
 
-    List<StreetInfo> selectById(Integer bl_areaid);
+    List<BlocalVo> selectById(Integer bl_areaid);
 
     int updateByPrimaryKeySelective(StreetInfo record);
 

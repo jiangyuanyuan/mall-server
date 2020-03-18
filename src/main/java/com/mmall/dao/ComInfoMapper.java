@@ -1,6 +1,7 @@
 package com.mmall.dao;
 
 import com.mmall.pojo.ComInfo;
+import com.mmall.vo.BlocalVo;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface ComInfoMapper {
 
     ComInfo selectByPrimaryKey(Integer comid);
 
-    List<ComInfo> selectById(Integer bl_streetid);
+    List<BlocalVo> selectById(Integer bl_streetid);
 
     int updateByPrimaryKeySelective(ComInfo record);
 

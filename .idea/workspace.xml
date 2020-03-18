@@ -3,18 +3,25 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="mall:war" />
+      <artifact name="mall:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2ca584b-5110-4b40-9e5b-6774accf9a17" name="Default" comment="第2版">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/ResetDto.java" afterDir="false" />
+    <list default="true" id="c2ca584b-5110-4b40-9e5b-6774accf9a17" name="Default" comment="修改密码">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/YqV2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/YqV2Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/dao/UserInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/UserInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/dao/AreaInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/AreaInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/dao/ComInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/ComInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/dao/SensorinfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/SensorinfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/dao/StreetInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/StreetInfoMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/service/IYqService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/service/IYqService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/YqServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/YqServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/vo/BlocalVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/vo/BlocalVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/datasource.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/AreaInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/AreaInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/ComInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/ComInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/SensorinfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/SensorinfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/StreetInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/StreetInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/datasource.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/mall.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/mall.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/datasource.properties" afterDir="false" />
@@ -563,7 +570,13 @@
       <workItem from="1584352484996" duration="1158000" />
       <workItem from="1584498722170" duration="1676000" />
       <workItem from="1584500659636" duration="1685000" />
-      <workItem from="1584502513475" duration="1444000" />
+      <workItem from="1584502513475" duration="1928000" />
+      <workItem from="1584512492249" duration="1712000" />
+      <workItem from="1584514306174" duration="1564000" />
+      <workItem from="1584516171510" duration="990000" />
+      <workItem from="1584517227678" duration="1333000" />
+      <workItem from="1584518597477" duration="1756000" />
+      <workItem from="1584520594652" duration="1225000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1512546794045</created>
@@ -726,7 +739,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584352517155</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="修改密码">
+      <created>1584504112592</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1584504112592</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -787,7 +807,8 @@
     <MESSAGE value="yq" />
     <MESSAGE value="第一版" />
     <MESSAGE value="第2版" />
-    <option name="LAST_COMMIT_MESSAGE" value="第2版" />
+    <MESSAGE value="修改密码" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改密码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -83,11 +83,17 @@
   </update>
 
 
-  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectById" resultType="com.mmall.vo.BlocalVo" parameterType="java.lang.Integer" >
     select
-    <include refid="Base_Column_List" />
-    from com_info_table
-    where bl_streetid = #{bl_streetid,jdbcType=INTEGER}
+    a.comid as id, a.comname as name, a.bl_streetid as blId, a.parse as parse,DATE_FORMAT( p.out_time, '%Y%m%d' ) as day,COUNT( 1 ) as sum
+    from com_info_table a,people_out_info_table p
+    where a.bl_streetid = #{bl_streetid,jdbcType=INTEGER}
+    and (p.out_time >= date_sub(now(), interval 1 DAY ))
+    and (p.sub_provice = a.comid or sub_area = a.comid  or sub_street = a.comid or sub_com = a.comid or sensorid = a.comid)
+    GROUP BY
+    DATE_FORMAT( p.out_time, '%Y%m%d' )
+
+
   </select>
 
 </mapper>

@@ -1,6 +1,7 @@
 package com.mmall.dao;
 
 import com.mmall.pojo.Sensorinfo;
+import com.mmall.vo.BlocalVo;
 
 import java.util.List;
 
@@ -12,7 +13,8 @@ public interface SensorinfoMapper {
     int insertSelective(Sensorinfo record);
 
     Sensorinfo selectByPrimaryKey(Integer sensorid);
-    List<Sensorinfo> selectById(Integer bl_comid);
+
+    List<BlocalVo> selectById(Integer bl_comid);
 
     int updateByPrimaryKeySelective(Sensorinfo record);
 

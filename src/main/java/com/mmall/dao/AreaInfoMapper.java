@@ -1,6 +1,7 @@
 package com.mmall.dao;
 
 import com.mmall.pojo.AreaInfo;
+import com.mmall.vo.BlocalVo;
 
 import java.util.List;
 
@@ -17,6 +18,6 @@ public interface AreaInfoMapper {
 
     int updateByPrimaryKey(AreaInfo record);
 
-    List<AreaInfo> selectById(Integer bl_provid);
+    List<BlocalVo> selectById(Integer bl_provid);
 
 }

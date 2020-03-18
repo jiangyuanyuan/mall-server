@@ -7,7 +7,7 @@ import java.util.Date;
 public interface IYqService {
     ServerResponse login(String username, String password);
 
-    ServerResponse resetPassword(String newPassword, String oldPassword, String acct);
+    ServerResponse resetPassword(String newPassword, String oldPassword, String acct,String token);
 
     ServerResponse getBelowLocals(Integer localId,Integer type);
 
