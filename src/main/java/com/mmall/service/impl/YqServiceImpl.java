@@ -3,10 +3,12 @@ package com.mmall.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.mmall.common.Const;
 import com.mmall.common.ServerResponse;
 import com.mmall.dao.*;
 import com.mmall.pojo.*;
 import com.mmall.service.IYqService;
+import com.mmall.util.MD5Util;
 import com.mmall.vo.BlocalVo;
 import com.mmall.vo.PeopleOutInfoVo;
 import com.mmall.vo.SingleStatisticsVo;
@@ -393,6 +395,55 @@ public class YqServiceImpl implements IYqService {
         }
         PageInfo pageInfo = new PageInfo(peopleOutInfoList);
         return ServerResponse.createBySuccessMessageAndData("分页查询", pageInfo);
+    }
+
+
+    /*
+        登录状态修改密码
+     */
+
+    @Override
+    public ServerResponse<String> resetPassword(String newPassword, String oldPassword, String acct) {
+        ServerResponse serverResponse = checkValid(acct, Const.CHECK_USERNAME);
+        if (serverResponse.isSuccess()){
+            return ServerResponse.createByErrorMessage("用户不存在");
+        }
+
+        System.out.println(acct + "  resetPassword password::::" + MD5Util.MD5EncodeUtf8(oldPassword)+"   "+acct);
+
+        UserDto user = userMapper.selectLogin(acct, MD5Util.MD5EncodeUtf8(oldPassword));
+
+
+        if (user==null){
+            return ServerResponse.createByErrorMessage("密码错误");
+        }
+        UserInfo userInfo =new UserInfo();
+        userInfo.setAcct(acct);
+        userInfo.setPasswd(MD5Util.MD5EncodeUtf8(newPassword));
+        int resultCount = userMapper.updateByPrimaryKeySelective(userInfo);
+        if (resultCount>0){
+            return ServerResponse.createBySuccessMessage("修改密码成功");
+        }
+        return ServerResponse.createByErrorMessage("密码修改失败");
+    }
+
+    /*
+       校验
+    */
+    public ServerResponse checkValid(String string, String type) {
+        if (string!=null&&!StringUtils.isEmpty(string)&&type!=null&&!StringUtils.isEmpty(type)){
+            int resultCount = 0;
+            if (type.equals(Const.CHECK_USERNAME)){
+                resultCount = userMapper.checkUserName(string);
+                if(resultCount>0){
+                    return ServerResponse.createByErrorMessage("用户已经存在");
+                }
+            }
+        }else {
+            return ServerResponse.createByErrorMessage("参数不能为空");
+        }
+
+        return ServerResponse.createBySuccessMessage("校验成功");
     }
 
 

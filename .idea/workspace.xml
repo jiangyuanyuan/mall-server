@@ -7,13 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2ca584b-5110-4b40-9e5b-6774accf9a17" name="Default" comment="第2版">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mmall/pojo/ResetDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/YqV2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/YqV2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/dao/UserInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/dao/UserInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/service/IYqService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/service/IYqService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/YqServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/YqServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/datasource.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/PeopleOutInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/PeopleOutInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mmall/common/ResponseCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mmall/common/ResponseCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/UserInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/datasource.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/mall.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/mall.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/common/ResponseCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/com/mmall/common/ResponseCode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/datasource.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -557,6 +560,10 @@
       <workItem from="1582186753737" duration="300000" />
       <workItem from="1583074093745" duration="541000" />
       <workItem from="1584339970732" duration="1616000" />
+      <workItem from="1584352484996" duration="1158000" />
+      <workItem from="1584498722170" duration="1676000" />
+      <workItem from="1584500659636" duration="1685000" />
+      <workItem from="1584502513475" duration="1444000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1512546794045</created>
@@ -712,7 +719,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582175705421</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="第2版">
+      <created>1584352517155</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1584352517155</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">

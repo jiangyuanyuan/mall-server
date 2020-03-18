@@ -22,5 +22,6 @@ public interface UserInfoMapper {
 
     UserDto selectLogin(@Param("acct") String acct, @Param("passwd") String passwd);
 
+    int checkPassword( @Param("acct") String acct,@Param("passwd") String passwd);
 
 }

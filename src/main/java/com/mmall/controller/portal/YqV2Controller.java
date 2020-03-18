@@ -6,6 +6,7 @@ import com.mmall.common.ServerResponse;
 import com.mmall.common.TokenCache;
 import com.mmall.pojo.LocalIdDto;
 import com.mmall.pojo.LoginDto;
+import com.mmall.pojo.ResetDto;
 import com.mmall.pojo.UserVo;
 import com.mmall.service.IYqService;
 import com.mmall.util.MD5Util;
@@ -36,9 +37,26 @@ public class YqV2Controller {
 //            session.setAttribute(Const.CURRENT_USER, response.getData());
             String token = UUID.randomUUID().toString();
             TokenCache.setKey(TokenCache.TOKEN_PREFIX+token,response.getData().getUserDto().getLocalId()+"");
+            TokenCache.setKey(TokenCache.TOKEN_PREFIX+token+"USERNAME",response.getData().getUserDto().getAcct()+"");
             response.getData().setToken(token);
         }
         return response;
+    }
+
+
+
+        /*
+        登录状态下重置密码
+     */
+    @RequestMapping(value = "resetPassword.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse<String> resetPassword(@RequestBody ResetDto resetDto, @RequestHeader("Authorization") String token){
+        String localId = TokenCache.getKey(TokenCache.TOKEN_PREFIX+token);
+        String acct = TokenCache.getKey(TokenCache.TOKEN_PREFIX+token+"USERNAME");
+        if (localId == null||acct==null) {
+            return ServerResponse.createByErrorCodeAndMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+        return iYqService.resetPassword(resetDto.getNewPassword(),resetDto.getOldPassword(),acct);
     }
 
 

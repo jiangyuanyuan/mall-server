@@ -120,8 +120,16 @@
     WHERE a.acct = #{acct}
     AND a.passwd =#{passwd}
 
-
-
-
   </select>
+
+
+  <select id="checkPassword" resultType="int" parameterType="map">
+        SELECT
+        count (*)
+        FROM acct_info_table
+        WHERE acct = #{acct}
+        AND passwd = #{passwd}
+    </select>
+
+
 </mapper>
