@@ -88,10 +88,9 @@
 
     select
    a.comid as id, a.comname as name, a.bl_streetid as blId, a.parse as parse,p.sum
-    from com_info_table a left join (select sub_com, COUNT( 1 ) as sum from people_out_info_table where DAY(out_time)=DAY(NOW())  GROUP BY DATE_FORMAT( out_time, '%Y%m%d' ))p
+    from com_info_table a left join (select sub_com, COUNT( 1 ) as sum from people_out_info_table where DAY(out_time)=DAY(NOW())  GROUP BY DATE_FORMAT( out_time, '%Y%m%d' ),sub_com)p
     on p.sub_com = a.comid
     where a.bl_streetid = #{bl_streetid,jdbcType=INTEGER}
-
 
 
   </select>
