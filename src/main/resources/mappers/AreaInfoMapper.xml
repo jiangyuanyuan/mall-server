@@ -87,7 +87,7 @@
 
 select
     a.areaid as id, a.areaname as name, a.bl_provid as blId, a.parse as parse , p.sum
-    from area_info_table a left join (select sub_area, COUNT( 1 ) as sum from people_out_info_table where DAY(out_time)=DAY(NOW())  GROUP BY DATE_FORMAT( out_time, '%Y%m%d' ),sub_area)p
+    from area_info_table a left join (select sub_area, COUNT( 1 ) as sum from people_out_info_table where date(out_time) = curdate()  GROUP BY DATE_FORMAT( out_time, '%Y%m%d' ),sub_area)p
     on p.sub_area = a.areaid
     where a.bl_provid = #{bl_provid,jdbcType=INTEGER}
 

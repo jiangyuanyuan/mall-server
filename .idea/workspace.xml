@@ -13,7 +13,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/ComInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/ComInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/SensorinfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/SensorinfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/StreetInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/StreetInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/datasource.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/mall.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/mall.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/mall/WEB-INF/classes/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/mall/WEB-INF/classes/datasource.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -570,7 +572,8 @@
       <workItem from="1584583893107" duration="1575000" />
       <workItem from="1584585711486" duration="1324000" />
       <workItem from="1584587603254" duration="1088000" />
-      <workItem from="1584603742122" duration="230000" />
+      <workItem from="1584603742122" duration="1238000" />
+      <workItem from="1584612434679" duration="767000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1512546794045</created>
@@ -754,7 +757,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584587956169</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="修改密码">
+      <created>1584604189956</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1584604189956</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">

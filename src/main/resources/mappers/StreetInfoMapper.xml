@@ -86,7 +86,7 @@
   <select id="selectById" resultType="com.mmall.vo.BlocalVo" parameterType="java.lang.Integer" >
     select
     a.streetid as id, a.streetname as name, a.bl_areaid as blId, a.parse as parse, p.sum
-    from street_info_table a left join (select sub_street, COUNT( 1 ) as sum from people_out_info_table where DAY(out_time)=DAY(NOW())  GROUP BY DATE_FORMAT( out_time, '%Y%m%d' ),sub_street)p
+    from street_info_table a left join (select sub_street, COUNT( 1 ) as sum from people_out_info_table where date(out_time) = curdate()  GROUP BY DATE_FORMAT( out_time, '%Y%m%d' ),sub_street)p
     on p.sub_street = a.streetid
     where a.bl_areaid = #{bl_areaid,jdbcType=INTEGER}
 

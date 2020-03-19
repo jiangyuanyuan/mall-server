@@ -88,7 +88,7 @@
 
 select
     a.sensorid as id, a.bl_name as name, a.bl_comid as blId, a.parse as parse, p.sum
-    from sensor_info_table a left join (select sensorid, COUNT( 1 ) as sum from people_out_info_table where DAY(out_time)=DAY(NOW()) GROUP BY DATE_FORMAT( out_time, '%Y%m%d' ),sensorid)p
+    from sensor_info_table a left join (select sensorid, COUNT( 1 ) as sum from people_out_info_table where date(out_time) = curdate() GROUP BY DATE_FORMAT( out_time, '%Y%m%d' ),sensorid)p
     on p.sensorid = a.sensorid
     where a.bl_comid = #{bl_comid,jdbcType=INTEGER}
 
