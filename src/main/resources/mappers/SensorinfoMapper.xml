@@ -85,15 +85,12 @@
 
   <select id="selectById" resultType="com.mmall.vo.BlocalVo" parameterType="java.lang.Integer" >
 
-    select
-    a.sensorid as id, a.bl_name as name, a.bl_comid as blId, a.parse as parse,DATE_FORMAT( p.out_time, '%Y%m%d' ) as day,COUNT( 1 ) as sum
-    from sensor_info_table a,people_out_info_table p
-    where a.bl_comid = #{bl_comid,jdbcType=INTEGER}
-    and (p.out_time >= date_sub(now(), interval 1 DAY ))
-    and (p.sub_provice = a.sensorid or sub_area = a.sensorid  or sub_street = a.sensorid or sub_com = a.sensorid or sensorid = a.sensorid)
-    GROUP BY
-    DATE_FORMAT( p.out_time, '%Y%m%d' )
 
+select
+    a.sensorid as id, a.bl_name as name, a.bl_comid as blId, a.parse as parse, p.sum
+    from sensor_info_table a left join (select sensorid, COUNT( 1 ) as sum from people_out_info_table where DAY(out_time)=DAY(NOW())  GROUP BY DATE_FORMAT( out_time, '%Y%m%d' ))p
+    on p.sensorid = a.sensorid
+    where a.bl_comid = #{bl_comid,jdbcType=INTEGER}
 
 
   </select>

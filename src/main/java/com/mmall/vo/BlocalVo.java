@@ -5,15 +5,13 @@ public class BlocalVo {
     private String name;
     private Integer blId;
     private String parse;
-    private String day;
     private Long sum;
     private Integer type;
-    public BlocalVo(Integer id,String name,Integer blId,String parse,String day,Long sum) {
+    public BlocalVo(Integer id,String name,Integer blId,String parse,Long sum) {
         this.id =id;
         this.name = name;
         this.blId = blId;
         this.parse = parse;
-        this.day = day;
         this.sum = sum;
     }
 
@@ -49,16 +47,6 @@ public class BlocalVo {
 
     public void setParse(String parse) {
         this.parse = parse;
-    }
-
-
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
     }
 
     public Long getSum() {
